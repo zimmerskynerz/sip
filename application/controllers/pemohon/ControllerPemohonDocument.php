@@ -22,11 +22,15 @@ class ControllerPemohonDocument extends CI_Controller
         if ($query_login > 0) :
             $id_user = $query_login['id_user'];
             $cek_sip = $this->select_model->cekDataSIP($id_user);
+            $data_identitas = $this->select_model->getAllIdentitasDokter($id_user);
+            $data_rekomendasi = $this->select_model->getAllRekomendasi($id_user);
             $data = array(
                 'folder' => 'dokumen',
                 'halaman' => 'rekomendasi/index',
                 // Cek Apakah Pernah Punya SIP
-                'cek_sip' => $cek_sip
+                'cek_sip' => $cek_sip,
+                'data_identitas' => $data_identitas,
+                'data_rekomendasi' => $data_rekomendasi
             );
             $this->load->view('pemohon/include/index', $data);
         else :
@@ -39,11 +43,17 @@ class ControllerPemohonDocument extends CI_Controller
         if ($query_login > 0) :
             $id_user = $query_login['id_user'];
             $cek_sip = $this->select_model->cekDataSIP($id_user);
+            $data_identitas = $this->select_model->getAllIdentitasDokter($id_user);
+            $data_rekomendasi = $this->select_model->getAllRekomendasi($id_user);
+            $data_berkas = $this->select_model->getAllBerkasDokter($id_user);
             $data = array(
                 'folder' => 'dokumen',
                 'halaman' => 'praktek/index',
                 // Cek Apakah Pernah Punya SIP
-                'cek_sip' => $cek_sip
+                'cek_sip' => $cek_sip,
+                'data_identitas' => $data_identitas,
+                'data_rekomendasi' => $data_rekomendasi,
+                'data_berkas' => $data_berkas
             );
             $this->load->view('pemohon/include/index', $data);
         else :

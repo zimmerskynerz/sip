@@ -14,34 +14,34 @@
                 <hr style="size: 10px;">
                 <center>
                     <h3><b><u>SURAT REKOMENDASI IZIN PRAKTIK DOKTER</u></b></h3>
-                    <h5>Nomor : 440/169/S.RIP/2020</h5>
+                    <h5>Nomor : 00<?= $data_rekomendasi['id_rekomendasi'] ?>/SR.<?= $data_rekomendasi['singkatan'] ?>/<?= date('Y', strtotime($data_rekomendasi['tgl_daftar'])) ?>/KUDUS-JT12</h5>
                 </center>
                 <p>Yang bertanda tangan dibawah ini, kepala Dinas Kesehatan Kabupaten Kudus, dengan ini menerangkan :</p>
                 <table>
                     <tr>
                         <th>Nama </th>
                         <th>:</th>
-                        <th> Muhammad Yusuf Aji Wijaya</th>
+                        <th> <?= $data_identitas['nm_lengkap'] ?></th>
                     </tr>
                     <tr>
                         <th>Tempat Tanggal Lahir </th>
                         <th>:</th>
-                        <th> Kudus, 23 Febuari 1997</th>
+                        <th> <?= $data_identitas['tmp_lahir'] ?>, <?= date('d F Y', strtotime($data_identitas['tgl_lahir'])) ?></th>
                     </tr>
                     <tr>
                         <th>Asal FK </th>
                         <th>:</th>
-                        <th> UNIVERSITAS MURIA KUDUS</th>
+                        <th> <?= $data_identitas['universitas'] ?></th>
                     </tr>
                     <tr>
                         <th>Alamat Rumah Dinas </th>
                         <th>:</th>
-                        <th> Jl. Sumber - Hadipolo, RT. 05/ RW. 05, Ds. Hadipolo Kec. Jekulo, Kab. Kudus - Jawa Tengah</th>
+                        <th> <?= $data_identitas['alamat'] ?></th>
                     </tr>
                     <tr>
                         <th>Alamat Praktik </th>
                         <th>:</th>
-                        <th> Jl. Kudus - Pati KM 3, RT. 09/ RW. 05, Ds. Hadipolo Kec. Jekulo, Kab. Kudus - Jawa Tengah</th>
+                        <th> <?= $data_identitas['alamat_praktik'] ?></th>
                     </tr>
                 </table><br>
                 <p>Pada dasarnya kami tidak keberatan dengan adanya praktek atas nama dr. Muhammad Yusuf Aji Wijaya di wilayah Kabupaten kudus dan kami memberikan surat rekomendasi ini untuk melengkapi pembuatan surat izin praktek ( SIP ) dokter.</p>
@@ -52,10 +52,12 @@
                 <br>
                 <table style="position: absolute; right:120px">
                     <center>
-                        <h7>Kudus, 23 Februari 2020</h7>
+                        <h7>Kudus, <?= date('d F Y', strtotime($data_rekomendasi['tgl_mulai'])) ?></h7>
                         <h6>Kepala Dinas Kesehatan Kab. Kudus</h6>
                         <br><br><br>
-                        <h6><b><u>Muhammad Askhabul Kahfi, S.KM,. MMkes,.</u></b></h6>
+                        <h6><b><u>JOKO DWI PUTRANTO, SH, MM</u></b></h6>
+                        <h8>Pembina Utama Muda</h8>
+                        <h6>NIP : 19600816 199202 1 001</h6>
                     </center>
                 </table>
             </div>

@@ -11,7 +11,7 @@
                 </button>
             </div>
             <div class="modal-body" id="detail_body">
-                <?php echo form_open_multipart('kepala_dinas/validasi/crudvalidasi'); ?>
+                <?php echo form_open_multipart('kabid/validasi/crudvalidasi'); ?>
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                 <div class="form-group mb-4">
                     <label for="">Nama Lengkap</label>
@@ -25,6 +25,7 @@
                 <div class="form-group mb-4">
                     <label for="">Nomor Rekomendasi</label>
                     <input type="text" class="form-control" id="no_rekomendasi" name="no_rekomendasi" required placeholder="Singkatan, Mis. DG" readonly>
+                    <input type="text" class="form-control" id="status_validasi" name="status_validasi" required placeholder="Singkatan, Mis. DG" readonly hidden>
                 </div>
             </div>
             <div class="modal-footer">
@@ -41,9 +42,11 @@
         var nm_lengkap = $(this).data('nm_lengkap');
         var no_str = $(this).data('no_str');
         var no_rekomendasi = $(this).data('no_rekomendasi');
+        var status_validasi = $(this).data('status_validasi');
         $(".modal-body#detail_body #id_sip").val(id_sip);
         $(".modal-body#detail_body #nm_lengkap").val(nm_lengkap);
         $(".modal-body#detail_body #no_str").val(no_str);
         $(".modal-body#detail_body #no_rekomendasi").val(no_rekomendasi);
+        $(".modal-body#detail_body #status_validasi").val(status_validasi);
     })
 </script>

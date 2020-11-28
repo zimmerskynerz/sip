@@ -32,11 +32,18 @@ class ControllerKabidRekomendasi extends CI_Controller
     }
     public function perpanjang()
     {
-        $data = array(
-            'folder'  => 'rekomendasi',
-            'halaman' => 'perpanjang'
-        );
-        $this->load->view('kabid/include/index', $data);
+        $query_login = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username'), 'level' => 'KABID'])->row_array();
+        if ($query_login > 0) :
+            $data_perpanjang = $this->select_model->getDataAllPerpanjang();
+            $data = array(
+                'folder'  => 'rekomendasi',
+                'halaman' => 'perpanjang',
+                'data_perpanjang' => $data_perpanjang
+            );
+            $this->load->view('kabid/include/index', $data);
+        else :
+            redirect('/');
+        endif;
     }
     public function detail_berkas($id)
     {
@@ -67,6 +74,11 @@ class ControllerKabidRekomendasi extends CI_Controller
             $this->update_model->terima_rekomendasi();
             $this->session->set_flashdata('berhasil_terima_rekomendasi', '<div class="berhasil_terima_rekomendasi"></div>');
             redirect('kabid/rekomendasi/baru');
+        endif;
+        if (isset($_POST['terimaKasiRekomendasiPerpanjang'])) :
+            $this->update_model->terima_rekomendasi_perpanjang();
+            $this->session->set_flashdata('berhasil_terima_rekomendasi', '<div class="berhasil_terima_rekomendasi"></div>');
+            redirect('kabid/rekomendasi/perpanjang');
         endif;
     }
 }

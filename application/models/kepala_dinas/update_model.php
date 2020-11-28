@@ -43,4 +43,26 @@ class Update_model extends CI_Model
         $this->db->where('id_sip', $id_sip);
         $this->db->update('tbl_sip', $data);
     }
+    function terima_rekomendasi_perpanjang()
+    {
+        $tgl_ini   = date('Y-m-d');
+        $cek_tgl = $this->select_model->cekTanggal();
+        $tgl_akhir = $cek_tgl['max_tanggal'];
+        $id_rekomendasi = htmlentities($this->input->post('id_rekomendasi'));
+        $data = array(
+            'tgl_mulai' => $tgl_ini,
+            'tgl_berakhir' => $tgl_akhir,
+            'status_rekomendasi' => 'AKTIF'
+        );
+        $this->db->where('id_rekomendasi', $id_rekomendasi);
+        $this->db->update('tbl_rekomendasi', $data);
+        $data_sip = array(
+            'id_rekomendasi' => $id_rekomendasi,
+            'tgl_mulai' => null,
+            'tgl_akhir' => null,
+            'status_sip' => 'P_PROSES'
+        );
+        $this->db->where('id_rekomendasi', $id_rekomendasi);
+        $this->db->update('tbl_sip', $data_sip);
+    }
 }

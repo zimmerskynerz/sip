@@ -39,9 +39,11 @@ class ControllerKasiPemohonRekomendasi extends CI_Controller
     {
         $query_login = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username'), 'level' => 'KASI'])->row_array();
         if ($query_login > 0) :
+            $data_perpanjang = $this->select_model->getDataAllPerpanjang();
             $data = array(
                 'folder'  => 'rekomendasi',
-                'halaman' => 'perpanjang'
+                'halaman' => 'perpanjang',
+                'data_perpanjang' => $data_perpanjang
             );
             $this->load->view('kasi/include/index', $data);
         else :
@@ -79,6 +81,11 @@ class ControllerKasiPemohonRekomendasi extends CI_Controller
                 $this->update_model->terima_rekomendasi();
                 $this->session->set_flashdata('berhasil_terima_rekomendasi', '<div class="berhasil_terima_rekomendasi"></div>');
                 redirect('kasi/pemohon_rekomendasi/baru');
+            endif;
+            if (isset($_POST['terimaKasiRekomendasiPerpanjang'])) :
+                $this->update_model->terima_rekomendasi_perpanjang();
+                $this->session->set_flashdata('berhasil_terima_rekomendasi', '<div class="berhasil_terima_rekomendasi"></div>');
+                redirect('kasi/pemohon_rekomendasi/perpanjang');
             endif;
         else :
             redirect('/');

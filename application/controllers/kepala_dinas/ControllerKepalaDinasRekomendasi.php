@@ -32,11 +32,18 @@ class ControllerKepalaDinasRekomendasi extends CI_Controller
     }
     public function perpanjang()
     {
-        $data = array(
-            'folder'  => 'rekomendasi',
-            'halaman' => 'perpanjang'
-        );
-        $this->load->view('kepala_dinas/include/index', $data);
+        $query_login = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username'), 'level' => 'KEPALA'])->row_array();
+        if ($query_login > 0) :
+            $data_perpanjang = $this->select_model->getDataAllPerpanjang();
+            $data = array(
+                'folder'  => 'rekomendasi',
+                'halaman' => 'perpanjang',
+                'data_perpanjang' => $data_perpanjang
+            );
+            $this->load->view('kepala_dinas/include/index', $data);
+        else :
+            redirect('/');
+        endif;
     }
     public function detail_berkas($id)
     {
@@ -66,7 +73,12 @@ class ControllerKepalaDinasRekomendasi extends CI_Controller
         if (isset($_POST['terimaKasiRekomendasi'])) :
             $this->update_model->terima_rekomendasi();
             $this->session->set_flashdata('berhasil_terima_rekomendasi', '<div class="berhasil_terima_rekomendasi"></div>');
-            redirect('kabid/rekomendasi/baru');
+            redirect('kepala_dinas/rekomendasi/baru');
+        endif;
+        if (isset($_POST['terimaKasiRekomendasiPerpanjang'])) :
+            $this->update_model->terima_rekomendasi_perpanjang();
+            $this->session->set_flashdata('berhasil_terima_rekomendasi', '<div class="berhasil_terima_rekomendasi"></div>');
+            redirect('kepala_dinas/rekomendasi/perpanjang');
         endif;
     }
 }

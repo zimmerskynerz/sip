@@ -58,6 +58,19 @@ class Select_model extends CI_Model
         $query  = $this->db->join('tbl_identitas as D', 'B.id_user=D.id_user');
         $query  = $this->db->join('tbl_kantor as E', 'B.id_user=E.id_user');
         $query  = $this->db->where('A.status_sip', 'PROSES');
+        $query  = $this->db->or_where('A.status_sip', 'P_PROSES');
+        $query  = $this->db->get();
+        return $query->result();
+    }
+    function getDataAllPerpanjang()
+    {
+        $query  = $this->db->select('*');
+        $query  = $this->db->from('tbl_user as A');
+        $query  = $this->db->join('tbl_identitas as B', 'A.id_user=B.id_user');
+        $query  = $this->db->join('tbl_kantor as C', 'A.id_user=C.id_user');
+        $query  = $this->db->join('tbl_rekomendasi as D', 'A.id_user=D.id_user');
+        $query  = $this->db->join('tbl_kategori as E', 'E.id_kategori=D.id_kategori');
+        $query  = $this->db->where('D.status_rekomendasi', 'P_PROSES');
         $query  = $this->db->get();
         return $query->result();
     }

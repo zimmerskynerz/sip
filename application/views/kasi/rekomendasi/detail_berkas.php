@@ -204,7 +204,11 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <button type="submit" id="terimaKasiRekomendasi" name="terimaKasiRekomendasi" class="btn btn-primary float-right">Terima Rekomendasi</button>
+                        <?php if ($data_rekomendasi['status_rekomendasi'] == 'P_PROSES') : ?>
+                            <button type="submit" id="terimaKasiRekomendasiPerpanjang" name="terimaKasiRekomendasiPerpanjang" class="btn btn-primary float-right">Terima Rekomendasi</button>
+                        <?php else : ?>
+                            <button type="submit" id="terimaKasiRekomendasi" name="terimaKasiRekomendasi" class="btn btn-primary float-right">Terima Rekomendasi</button>
+                        <?php endif; ?>
                     </div>
                     <!-- /.card-footer -->
                 </div>
