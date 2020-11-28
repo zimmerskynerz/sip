@@ -59,7 +59,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item <?php echo $this->uri->segment(2) == 'dokter' ? 'menu-open' : '' ?>">
+                <!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'dokter' ? 'menu-open' : '' ?>">
                     <a class="nav-link">
                         <i class="nav-icon fas fa-user-md"></i>
                         <p>
@@ -81,7 +81,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="<?= base_url('kasi/profile') ?>" class="nav-link <?php echo $this->uri->segment(2) == 'profile' ? 'active' : '' ?>">
                         <i class="nav-icon far fa-user"></i>

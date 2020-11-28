@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Nov 2020 pada 20.38
+-- Waktu pembuatan: 28 Nov 2020 pada 05.53
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.3.22
 
@@ -137,7 +137,7 @@ CREATE TABLE `tbl_rekomendasi` (
 --
 
 INSERT INTO `tbl_rekomendasi` (`id_rekomendasi`, `id_user`, `id_kategori`, `no_str`, `tgl_berakhir_str`, `tgl_mulai`, `tgl_berakhir`, `tgl_daftar`, `status_rekomendasi`) VALUES
-(1, 4, 1, '12092300298982', '2025-11-27', NULL, NULL, '2020-11-27', 'P_PROSES');
+(1, 4, 1, '12092300298982', '2025-11-27', '2020-11-28', '2025-11-28', '2020-11-27', 'AKTIF');
 
 -- --------------------------------------------------------
 
@@ -158,7 +158,7 @@ CREATE TABLE `tbl_sip` (
 --
 
 INSERT INTO `tbl_sip` (`id_sip`, `id_rekomendasi`, `tgl_mulai`, `tgl_akhir`, `status_sip`) VALUES
-(1, 1, '2020-11-27', '2020-11-26', 'AKTIF');
+(1, 1, '2020-11-28', '2025-11-28', 'AKTIF');
 
 -- --------------------------------------------------------
 

@@ -1,7 +1,30 @@
-<section class="content">
-    <div class="container-fluid">
-        <br>
-        <div class="card">
+<!DOCTYPE html>
+<html lang="en">
+
+<?php $this->load->view('pemohon/include/head') ?>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- Main content -->
+            <style>
+                hr {
+                    border: none;
+                    height: 3px;
+                    /* Set the hr color */
+                    color: #333;
+                    /* old IE */
+                    background-color: #333;
+                    /* Modern Browsers */
+                }
+            </style>
             <div class="card-body">
                 <img src="<?= base_url('assets/') ?>dist/img/logo.png" width="100px" style="position: absolute;" alt="">
                 <center>
@@ -10,7 +33,6 @@
                     <h7>Jl. Diponegoro No.15, Nganguk, Kec. Kota Kudus</h7><br>
                     <h7>Kabupaten Kudus, Jawa Tengah 59312</h7>
                 </center>
-                <a href="<?= base_url('pemohon/dokumen/cetak_sip') ?>" style="position: absolute; right: 20px; top:10px">cetak</a>
                 <hr>
                 <center>
                     <h3><b><u>SURAT IZIN PRAKTIK ( SIP ) DOKTER</u></b></h3>
@@ -26,44 +48,44 @@
 
                 <table>
                     <tr>
-                        <th>Tempat/ tgl. Lahir </th>
-                        <th>:</th>
-                        <th> <?= $data_identitas['tmp_lahir'] ?>, <?= date('d F Y', strtotime($data_identitas['tgl_lahir'])) ?></th>
+                        <th style="text-align: left;">Tempat/ tgl. Lahir </th>
+                        <th style="text-align: left;">:</th>
+                        <th style="text-align: left;"> <?= $data_identitas['tmp_lahir'] ?>, <?= date('d F Y', strtotime($data_identitas['tgl_lahir'])) ?></th>
                     </tr>
                     <tr>
-                        <th>Alamat Rumah</th>
-                        <th>:</th>
-                        <th> <?= $data_identitas['alamat'] ?></th>
+                        <th style="text-align: left;">Alamat Rumah</th>
+                        <th style="text-align: left;">:</th>
+                        <th style="text-align: left;"> <?= $data_identitas['alamat'] ?></th>
                     </tr>
                     <tr>
-                        <th>Untuk Praktik </th>
-                        <th>:</th>
-                        <th> <?= $data_rekomendasi['nm_kategori'] ?></th>
+                        <th style="text-align: left;">Untuk Praktik </th>
+                        <th style="text-align: left;">:</th>
+                        <th style="text-align: left;"> <?= $data_rekomendasi['nm_kategori'] ?></th>
                     </tr>
                     <tr>
-                        <th>Tempat Praktik </th>
-                        <th>:</th>
-                        <th> <?= $data_identitas['nm_kantor'] ?></th>
+                        <th style="text-align: left;">Tempat Praktik </th>
+                        <th style="text-align: left;">:</th>
+                        <th style="text-align: left;"> <?= $data_identitas['nm_kantor'] ?></th>
                     </tr>
                     <tr>
-                        <th>Alamat Praktik </th>
-                        <th>:</th>
-                        <th> <?= $data_identitas['alamat_praktik'] ?></th>
+                        <th style="text-align: left;">Alamat Praktik </th>
+                        <th style="text-align: left;">:</th>
+                        <th style="text-align: left;"> <?= $data_identitas['alamat_praktik'] ?></th>
                     </tr>
                     <tr>
-                        <th>Nomor STR</th>
-                        <th>:</th>
-                        <th> <?= $data_rekomendasi['no_str'] ?></th>
+                        <th style="text-align: left;">Nomor STR</th>
+                        <th style="text-align: left;">:</th>
+                        <th style="text-align: left;"> <?= $data_rekomendasi['no_str'] ?></th>
                     </tr>
                     <tr>
-                        <th>STR Berlaku sampai dengan</th>
-                        <th>:</th>
-                        <th> <?= date('d F Y', strtotime($data_rekomendasi['tgl_berakhir_str'])) ?></th>
+                        <th style="text-align: left;">STR Berlaku sampai dengan</th>
+                        <th style="text-align: left;">:</th>
+                        <th style="text-align: left;"> <?= date('d F Y', strtotime($data_rekomendasi['tgl_berakhir_str'])) ?></th>
                     </tr>
                     <tr>
-                        <th>Nomor Rekomendasi OP</th>
-                        <th>:</th>
-                        <th> 00<?= $data_rekomendasi['id_rekomendasi'] ?>/SR.<?= $data_rekomendasi['singkatan'] ?>/<?= date('Y', strtotime($data_rekomendasi['tgl_daftar'])) ?>/KUDUS-JT12</th>
+                        <th style="text-align: left;">Nomor Rekomendasi OP</th>
+                        <th style="text-align: left;">:</th>
+                        <th style="text-align: left;"> 00<?= $data_rekomendasi['id_rekomendasi'] ?>/SR.<?= $data_rekomendasi['singkatan'] ?>/<?= date('Y', strtotime($data_rekomendasi['tgl_daftar'])) ?>/KUDUS-JT12</th>
                     </tr>
                 </table><br>
                 <p><u>Dengan ketentuan sebagai berikut</u></p>
@@ -93,8 +115,27 @@
                 <ol>3. Kepala Dinas Kesehatan Provinsi Jawa Tengah di Kota Semarang</ol>
                 <ol>4. Ketua Ikatan Dokter Indonesia ( IDI ) Cabang Kudus di Kabupaten Kudus</ol>
             </div>
+            <script language=javascript>
+                function printWindow() {
+                    bV = parseInt(navigator.appVersion);
+                    if (bV >= 4) window.print();
+                }
+                printWindow();
+            </script>
+            <!-- /.content -->
         </div>
-        <!-- /.row -->
+        <!-- /.content-wrapper -->
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
     </div>
-    <!-- /.container-fluid -->
-</section>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <?php $this->load->view('pemohon/include/footer') ?>
+</body>
+
+</html>

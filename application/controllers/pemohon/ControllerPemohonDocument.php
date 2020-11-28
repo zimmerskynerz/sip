@@ -60,6 +60,45 @@ class ControllerPemohonDocument extends CI_Controller
             redirect('/');
         endif;
     }
+    public function cetak_rekomendasi()
+    {
+
+        $query_login = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username'), 'level' => 'PEMOHON'])->row_array();
+        if ($query_login > 0) :
+            $id_user = $query_login['id_user'];
+            $cek_sip = $this->select_model->cekDataSIP($id_user);
+            $data_identitas = $this->select_model->getAllIdentitasDokter($id_user);
+            $data_rekomendasi = $this->select_model->getAllRekomendasi($id_user);
+            $data = array(
+                'cek_sip' => $cek_sip,
+                'data_identitas' => $data_identitas,
+                'data_rekomendasi' => $data_rekomendasi
+            );
+            $this->load->view('pemohon/dokumen/rekomendasi/cetak_rekomendasi', $data);
+        else :
+            redirect('/');
+        endif;
+    }
+    public function cetak_sip()
+    {
+        $query_login = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username'), 'level' => 'PEMOHON'])->row_array();
+        if ($query_login > 0) :
+            $id_user = $query_login['id_user'];
+            $cek_sip = $this->select_model->cekDataSIP($id_user);
+            $data_identitas = $this->select_model->getAllIdentitasDokter($id_user);
+            $data_rekomendasi = $this->select_model->getAllRekomendasi($id_user);
+            $data_berkas = $this->select_model->getAllBerkasDokter($id_user);
+            $data = array(
+                'cek_sip' => $cek_sip,
+                'data_identitas' => $data_identitas,
+                'data_rekomendasi' => $data_rekomendasi,
+                'data_berkas' => $data_berkas
+            );
+            $this->load->view('pemohon/dokumen/praktek/cetak_sip', $data);
+        else :
+            redirect('/');
+        endif;
+    }
     public function berkas_permohonan()
     {
         $query_login = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username'), 'level' => 'PEMOHON'])->row_array();

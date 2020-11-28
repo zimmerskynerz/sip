@@ -10,7 +10,7 @@
                     <h7>Jl. Diponegoro No.15, Nganguk, Kec. Kota Kudus</h7><br>
                     <h7>Kabupaten Kudus, Jawa Tengah 59312</h7>
                 </center>
-                <a href="<?= base_url('pemohon/cetak_rekomendasi') ?>" style="position: absolute; right: 20px; top:10px">cetak</a>
+                <a href="<?= base_url('pemohon/dokumen/cetak_rekomendasi') ?>" style="position: absolute; right: 20px; top:10px">cetak</a>
                 <hr style="size: 10px;">
                 <center>
                     <h3><b><u>SURAT REKOMENDASI IZIN PRAKTIK DOKTER</u></b></h3>

@@ -5,10 +5,9 @@
             <div class="col-md-6 col-sm-6 col-12">
                 <div class="info-box bg-info">
                     <span class="info-box-icon"><i class="fas fa-notes-medical"></i></span>
-
                     <div class="info-box-content">
                         <span class="info-box-text">Pengajuan Ijin Praktek</span>
-                        <span class="info-box-number">1000 Dokter</span>
+                        <span class="info-box-number"><?= count($data_baru); ?> Dokter</span>
 
                         <div class="progress">
                             <div class="progress-bar" style="width: 100%"></div>
@@ -29,7 +28,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Perpanjang Ijin Praktek</span>
-                        <span class="info-box-number">200 Dokter</span>
+                        <span class="info-box-number"><?= count($data_perpanjang); ?> Dokter</span>
 
                         <div class="progress">
                             <div class="progress-bar" style="width: 100%"></div>
@@ -44,7 +43,7 @@
             </div>
             <!-- /.col -->
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12 col-sm-12 col-12">
                 <div class="info-box bg-fuchsia">
                     <span class="info-box-icon"><i class="fas fa-notes-medical"></i></span>
@@ -60,11 +59,8 @@
                             <a href="<?= base_url('kabid/validasi') ?>" style="color: aliceblue;">Selengkapnya >>></a>
                         </span>
                     </div>
-                    <!-- /.info-box-content -->
                 </div>
-                <!-- /.info-box -->
             </div>
-            <!-- /.col -->
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-12">
@@ -82,12 +78,8 @@
                             <a href="<?= base_url('kabid/dokter/aktif') ?>" style="color: aliceblue;">Selengkapnya >>></a>
                         </span>
                     </div>
-                    <!-- /.info-box-content -->
                 </div>
-                <!-- /.info-box -->
             </div>
-            <!-- /.col -->
-            <!-- /.col -->
             <div class="col-md-6 col-sm-6 col-12">
                 <div class="info-box bg-danger">
                     <span class="info-box-icon"><i class="fas fa-user-times"></i></span>
@@ -103,12 +95,9 @@
                             <a href="<?= base_url('kabid/dokter/non_aktif') ?>" style="color: aliceblue;">Selengkapnya >>></a>
                         </span>
                     </div>
-                    <!-- /.info-box-content -->
                 </div>
-                <!-- /.info-box -->
             </div>
-            <!-- /.col -->
-        </div>
+        </div> -->
         <!-- /.row -->
     </div>
     <!-- /.container-fluid -->

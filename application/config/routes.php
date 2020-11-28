@@ -33,6 +33,7 @@ $route['pemohon/dokumen/cetak_sip']                             = 'pemohon/Contr
 $route['pemohon/dokumen/berkas_permohonan']                     = 'pemohon/ControllerPemohonDocument/berkas_permohonan';
 $route['pemohon/dokumen/cruddokumen']                           = 'pemohon/ControllerPemohonDocument/cruddokumen';
 
+
 // Level Kasi
 // Menu Beranda
 $route['kasi']                                                  = 'kasi/ControllerKasi/index';
@@ -54,6 +55,7 @@ $route['kasi/dokter/non_aktif']                                 = 'kasi/Controll
 // Menu Profile
 $route['kasi/profile']                                          = 'kasi/ControllerKasiProfile/index';
 $route['kasi/profile/crudprofile']                              = 'kasi/ControllerKasiProfile/crudprofile';
+
 
 // Level Kabid
 // Menu Beranda
