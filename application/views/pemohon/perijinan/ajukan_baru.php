@@ -78,13 +78,13 @@
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Universitas</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="universitas" name="universitas" placeholder="Nomor Telepon Pribadi" required>
+                                <input type="text" class="form-control" id="universitas" name="universitas" placeholder="Nama Universitas" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Tahun Lulus</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" id="tahun" name="tahun" placeholder="Nomor Telepon Pribadi" required>
+                                <input type="number" class="form-control" id="tahun" name="tahun" placeholder="Tahun Lulus" required>
                             </div>
                         </div>
                     </div>

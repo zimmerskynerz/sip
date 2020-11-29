@@ -107,13 +107,13 @@
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Universitas</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="universitas" value="<?= $data_identitas['universitas'] ?>" name="universitas" placeholder="Nomor Telepon Pribadi" required>
+                                <input type="text" class="form-control" id="universitas" value="<?= $data_identitas['universitas'] ?>" name="universitas" placeholder="Nama Universitas" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Tahun Lulus</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" id="tahun" value="<?= $data_identitas['tahun'] ?>" name="tahun" placeholder="Nomor Telepon Pribadi" required>
+                                <input type="number" class="form-control" id="tahun" value="<?= $data_identitas['tahun'] ?>" name="tahun" placeholder="Tahun Lulus" required>
                             </div>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
                         <h3 class="card-title">Biodata Izin Praktik</h3>
                     </div>
                     <!-- /.card-header -->
-                    <!-- form start --> 
+                    <!-- form start -->
                     <div class="card-body">
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Praktik</label>

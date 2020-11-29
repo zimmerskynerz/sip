@@ -105,13 +105,13 @@
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Universitas</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="universitas" value="<?= $data_identitas['universitas'] ?>" name="universitas" placeholder="Nomor Telepon Pribadi" readonly>
+                                <input type="text" class="form-control" id="universitas" value="<?= $data_identitas['universitas'] ?>" name="universitas" placeholder="Nama Universtias" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Tahun Lulus</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" id="tahun" value="<?= $data_identitas['tahun'] ?>" name="tahun" placeholder="Nomor Telepon Pribadi" readonly>
+                                <input type="number" class="form-control" id="tahun" value="<?= $data_identitas['tahun'] ?>" name="tahun" placeholder="Tahun Lulus" readonly>
                             </div>
                         </div>
                     </div>
