@@ -105,7 +105,7 @@
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Universitas</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="universitas" value="<?= $data_identitas['universitas'] ?>" name="universitas" placeholder="Nama Universtias" readonly>
+                                <input type="text" class="form-control" id="universitas" value="<?= $data_identitas['universitas'] ?>" name="universitas" placeholder="Nama Universitas" readonly>
                             </div>
                         </div>
                         <div class="form-group row">

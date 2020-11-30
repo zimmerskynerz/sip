@@ -158,7 +158,7 @@
                         <h3 class="card-title">Biodata Izin Praktik</h3>
                     </div>
                     <!-- /.card-header -->
-                    <!-- form start -->
+                    <!-- form start --> 
                     <div class="card-body">
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Praktik</label>
