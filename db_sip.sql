@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Nov 2020 pada 05.53
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.3.22
+-- Generation Time: Dec 08, 2020 at 05:31 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.3.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_sip`
+-- Database: `sip`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_berkas`
+-- Table structure for table `tbl_berkas`
 --
 
 CREATE TABLE `tbl_berkas` (
@@ -40,16 +40,39 @@ CREATE TABLE `tbl_berkas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_berkas`
+-- Dumping data for table `tbl_berkas`
 --
 
 INSERT INTO `tbl_berkas` (`id_berkas`, `id_user`, `foto`, `ijazah`, `ktp`, `str_legalisir`, `s_pernyataan`, `s_persetujuan`, `bpjs`) VALUES
-(1, 4, '462ac243eaab9d8e9fc9061884942c7f.jpeg', 'b0dc3fe78e77220ea8006288fd506651.jpeg', '147b21890c6e722b87ce89e68ec7b96c.jpg', '60f5a021cc00c44a16c86d1c95034eed.jpg', 'c0a5fcba161c193f9af429270f974b3c.jpg', '3a19e1613a3b6eca5d00ff18816bd0dc.png', '0532fa5ed48ac977538cd4939d138321.png');
+(1, 4, '462ac243eaab9d8e9fc9061884942c7f.jpeg', 'b0dc3fe78e77220ea8006288fd506651.jpeg', '147b21890c6e722b87ce89e68ec7b96c.jpg', '60f5a021cc00c44a16c86d1c95034eed.jpg', 'c0a5fcba161c193f9af429270f974b3c.jpg', '3a19e1613a3b6eca5d00ff18816bd0dc.png', '0532fa5ed48ac977538cd4939d138321.png'),
+(2, 5, '7f005fb207e3744bbb2c13833f80e069.jpg', '49b50677ce81eeb386db6842fd68e7af.jpg', 'bc24d077997982016a91f2d43a68bedb.jpg', '65fc5ee9763c59d00edb1afe45197bd1.jpg', '6e8cc54d64a1a2203adedc90bd267a6e.jpg', '5416f6c90f5cff3b85ab7d7f654abc65.jpg', 'adb54a24c9496831f2cd15291423e5d0.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_identitas`
+-- Table structure for table `tbl_history`
+--
+
+CREATE TABLE `tbl_history` (
+  `id_history` int(9) NOT NULL,
+  `id_user` int(5) NOT NULL,
+  `id_rekomendasi` int(5) NOT NULL,
+  `tgl_validasi` date NOT NULL,
+  `status_pengajuan` enum('TERIMA','TOLAK') NOT NULL,
+  `ket_lain` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_history`
+--
+
+INSERT INTO `tbl_history` (`id_history`, `id_user`, `id_rekomendasi`, `tgl_validasi`, `status_pengajuan`, `ket_lain`) VALUES
+(1, 5, 2, '2020-12-08', 'TERIMA', 'Berkas Diterima');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_identitas`
 --
 
 CREATE TABLE `tbl_identitas` (
@@ -67,16 +90,17 @@ CREATE TABLE `tbl_identitas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_identitas`
+-- Dumping data for table `tbl_identitas`
 --
 
 INSERT INTO `tbl_identitas` (`id_user`, `nm_lengkap`, `jekel`, `tmp_lahir`, `tgl_lahir`, `agama`, `alamat`, `no_hp`, `pendidikan_terakhir`, `universitas`, `tahun`) VALUES
-(4, 'dr. MUHAMMAD YUSUF AJI WIJAYA, S.Kom,. MM,. M.Sg', 'L', 'Kudus', '1997-02-23', 'L', 'Jl. Sumber Bulusan, RT. 05/ RW. 05, Ds. hadipolo, Kec. jekulo, Kab. Kudus - Jawa Tengah', '0895411547434', 'S3', 'UNIVERSITAS OHAYO JAPAN', 2020);
+(4, 'dr. MUHAMMAD YUSUF AJI WIJAYA, S.Kom,. MM,. M.Sg', 'L', 'Kudus', '1997-02-23', 'L', 'Jl. Sumber Bulusan, RT. 05/ RW. 05, Ds. hadipolo, Kec. jekulo, Kab. Kudus - Jawa Tengah', '0895411547434', 'S3', 'UNIVERSITAS OHAYO JAPAN', 2020),
+(5, 'Aji Wijaya', 'L', 'Kudus', '2020-12-08', 'Islam', 'Kudus', '08112904711', 'S3', 'Universitas Diponegoro', 2020);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kantor`
+-- Table structure for table `tbl_kantor`
 --
 
 CREATE TABLE `tbl_kantor` (
@@ -87,16 +111,17 @@ CREATE TABLE `tbl_kantor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_kantor`
+-- Dumping data for table `tbl_kantor`
 --
 
 INSERT INTO `tbl_kantor` (`id_user`, `nm_kantor`, `alamat_praktik`, `no_kantor`) VALUES
-(4, 'PERMATA HUSADA FARMA', 'Jl. Kudus - Pati KM. 3, Ds. Dersalam, Kec. Bae, Kab. Kudus - Jawa Tengah', '08112904711');
+(4, 'PERMATA HUSADA FARMA', 'Jl. Kudus - Pati KM. 3, Ds. Dersalam, Kec. Bae, Kab. Kudus - Jawa Tengah', '08112904711'),
+(5, 'CV. Aburizal Sehat', 'AAAAAAAAAAAAAAAAAAA', '08112904711');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kategori`
+-- Table structure for table `tbl_kategori`
 --
 
 CREATE TABLE `tbl_kategori` (
@@ -107,7 +132,7 @@ CREATE TABLE `tbl_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_kategori`
+-- Dumping data for table `tbl_kategori`
 --
 
 INSERT INTO `tbl_kategori` (`id_kategori`, `nm_kategori`, `singkatan`, `status_kategori`) VALUES
@@ -117,7 +142,7 @@ INSERT INTO `tbl_kategori` (`id_kategori`, `nm_kategori`, `singkatan`, `status_k
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_rekomendasi`
+-- Table structure for table `tbl_rekomendasi`
 --
 
 CREATE TABLE `tbl_rekomendasi` (
@@ -129,20 +154,21 @@ CREATE TABLE `tbl_rekomendasi` (
   `tgl_mulai` date DEFAULT NULL,
   `tgl_berakhir` date DEFAULT NULL,
   `tgl_daftar` date DEFAULT NULL,
-  `status_rekomendasi` enum('PROSES','KASI','KABID','AKTIF','BLOKIR','P_PROSES','P_KASI','P_KABID') NOT NULL
+  `status_rekomendasi` enum('PROSES','KASI','KABID','AKTIF','BLOKIR','P_PROSES','P_KASI','P_KABID','KONFIRMASI','TOLAK') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_rekomendasi`
+-- Dumping data for table `tbl_rekomendasi`
 --
 
 INSERT INTO `tbl_rekomendasi` (`id_rekomendasi`, `id_user`, `id_kategori`, `no_str`, `tgl_berakhir_str`, `tgl_mulai`, `tgl_berakhir`, `tgl_daftar`, `status_rekomendasi`) VALUES
-(1, 4, 1, '12092300298982', '2025-11-27', '2020-11-28', '2025-11-28', '2020-11-27', 'AKTIF');
+(1, 4, 1, '12092300298982', '2025-11-27', '2020-11-28', '2025-11-28', '2020-11-27', 'AKTIF'),
+(2, 5, 1, '121222', '2020-12-09', NULL, NULL, '2020-12-08', 'PROSES');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_sip`
+-- Table structure for table `tbl_sip`
 --
 
 CREATE TABLE `tbl_sip` (
@@ -154,7 +180,7 @@ CREATE TABLE `tbl_sip` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_sip`
+-- Dumping data for table `tbl_sip`
 --
 
 INSERT INTO `tbl_sip` (`id_sip`, `id_rekomendasi`, `tgl_mulai`, `tgl_akhir`, `status_sip`) VALUES
@@ -163,7 +189,7 @@ INSERT INTO `tbl_sip` (`id_sip`, `id_rekomendasi`, `tgl_mulai`, `tgl_akhir`, `st
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_user`
+-- Table structure for table `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -171,50 +197,60 @@ CREATE TABLE `tbl_user` (
   `username` varchar(256) NOT NULL,
   `email` varchar(256) DEFAULT NULL,
   `password` text NOT NULL,
-  `level` enum('PEMOHON','KASI','KABID','KEPALA') NOT NULL
+  `level` enum('PEMOHON','KASI','KABID','KEPALA','ADMIN') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_user`
+-- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_user`, `username`, `email`, `password`, `level`) VALUES
 (1, 'kepala', NULL, '$2y$10$HhKXwtDuy.nLHjhJhWh1EevM25KGrJSLqWJT3n8qsNxOblK/2z.aC', 'KEPALA'),
 (2, 'kabid', NULL, '$2y$10$HhKXwtDuy.nLHjhJhWh1EevM25KGrJSLqWJT3n8qsNxOblK/2z.aC', 'KABID'),
 (3, 'kasi', NULL, '$2y$10$HhKXwtDuy.nLHjhJhWh1EevM25KGrJSLqWJT3n8qsNxOblK/2z.aC', 'KASI'),
-(4, 'zimmerskynerz', 'ajiw100@gmail.com', '$2y$10$ggVPkjf5MTISHN.mEPaqE.oZgTRQjn11SVGY4/BVnT4y0Dp3fzi/u', 'PEMOHON');
+(4, 'zimmerskynerz', 'ajiw100@gmail.com', '$2y$10$ggVPkjf5MTISHN.mEPaqE.oZgTRQjn11SVGY4/BVnT4y0Dp3fzi/u', 'PEMOHON'),
+(5, 'lucky', 'lucky@gmail.com', '$2y$10$z7H6yuGSEZExEIgCG/CVoOkLydHfaZhmQ4dpeVy.MqteoG5h8HDoO', 'PEMOHON'),
+(6, 'admin', 'admin@gmail.com', '$2y$10$z7H6yuGSEZExEIgCG/CVoOkLydHfaZhmQ4dpeVy.MqteoG5h8HDoO', 'ADMIN');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `tbl_berkas`
+-- Indexes for table `tbl_berkas`
 --
 ALTER TABLE `tbl_berkas`
   ADD PRIMARY KEY (`id_berkas`),
   ADD KEY `use_id_user02` (`id_user`);
 
 --
--- Indeks untuk tabel `tbl_identitas`
+-- Indexes for table `tbl_history`
+--
+ALTER TABLE `tbl_history`
+  ADD PRIMARY KEY (`id_history`),
+  ADD KEY `use_id_user4` (`id_user`),
+  ADD KEY `use_id_rekomendasi` (`id_rekomendasi`);
+
+--
+-- Indexes for table `tbl_identitas`
 --
 ALTER TABLE `tbl_identitas`
   ADD KEY `use_id_user01` (`id_user`);
 
 --
--- Indeks untuk tabel `tbl_kantor`
+-- Indexes for table `tbl_kantor`
 --
 ALTER TABLE `tbl_kantor`
   ADD KEY `use_id_user04` (`id_user`);
 
 --
--- Indeks untuk tabel `tbl_kategori`
+-- Indexes for table `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indeks untuk tabel `tbl_rekomendasi`
+-- Indexes for table `tbl_rekomendasi`
 --
 ALTER TABLE `tbl_rekomendasi`
   ADD PRIMARY KEY (`id_rekomendasi`),
@@ -222,14 +258,14 @@ ALTER TABLE `tbl_rekomendasi`
   ADD KEY `use_id_kategori` (`id_kategori`);
 
 --
--- Indeks untuk tabel `tbl_sip`
+-- Indexes for table `tbl_sip`
 --
 ALTER TABLE `tbl_sip`
   ADD PRIMARY KEY (`id_sip`),
   ADD KEY `id_rekomendasi` (`id_rekomendasi`);
 
 --
--- Indeks untuk tabel `tbl_user`
+-- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id_user`),
@@ -237,70 +273,83 @@ ALTER TABLE `tbl_user`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_berkas`
+-- AUTO_INCREMENT for table `tbl_berkas`
 --
 ALTER TABLE `tbl_berkas`
-  MODIFY `id_berkas` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_berkas` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_kategori`
+-- AUTO_INCREMENT for table `tbl_history`
+--
+ALTER TABLE `tbl_history`
+  MODIFY `id_history` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
   MODIFY `id_kategori` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_rekomendasi`
+-- AUTO_INCREMENT for table `tbl_rekomendasi`
 --
 ALTER TABLE `tbl_rekomendasi`
-  MODIFY `id_rekomendasi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_rekomendasi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_sip`
+-- AUTO_INCREMENT for table `tbl_sip`
 --
 ALTER TABLE `tbl_sip`
   MODIFY `id_sip` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_user`
+-- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tbl_berkas`
+-- Constraints for table `tbl_berkas`
 --
 ALTER TABLE `tbl_berkas`
   ADD CONSTRAINT `use_id_user02` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_identitas`
+-- Constraints for table `tbl_history`
+--
+ALTER TABLE `tbl_history`
+  ADD CONSTRAINT `use_id_rekomendasi` FOREIGN KEY (`id_rekomendasi`) REFERENCES `tbl_rekomendasi` (`id_rekomendasi`),
+  ADD CONSTRAINT `use_id_user4` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`);
+
+--
+-- Constraints for table `tbl_identitas`
 --
 ALTER TABLE `tbl_identitas`
   ADD CONSTRAINT `use_id_user01` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_kantor`
+-- Constraints for table `tbl_kantor`
 --
 ALTER TABLE `tbl_kantor`
   ADD CONSTRAINT `use_id_user04` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_rekomendasi`
+-- Constraints for table `tbl_rekomendasi`
 --
 ALTER TABLE `tbl_rekomendasi`
   ADD CONSTRAINT `use_id_kategori` FOREIGN KEY (`id_kategori`) REFERENCES `tbl_kategori` (`id_kategori`),
   ADD CONSTRAINT `use_id_user03` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_sip`
+-- Constraints for table `tbl_sip`
 --
 ALTER TABLE `tbl_sip`
   ADD CONSTRAINT `id_rekomendasi` FOREIGN KEY (`id_rekomendasi`) REFERENCES `tbl_rekomendasi` (`id_rekomendasi`);
