@@ -26,8 +26,9 @@ class ControllerPemohonPengajuan extends CI_Controller
         if ($query_login > 0) :
             $id_user = $query_login['id_user'];
             $cek_sip = $this->select_model->cekDataSIP($id_user);
-            $cek_rekomendasi = $this->select_model->cekRekomendasi($id_user);
             $data_baru = $this->select_model->getDataAllBaru($id_user);
+            $cek_komentar = $this->select_model->getDataKomentar($id_user);
+            // echo "<pre>";
             // var_dump($data_baru);
             // die;
             $data = array(
@@ -35,8 +36,8 @@ class ControllerPemohonPengajuan extends CI_Controller
                 'halaman' => 'baru',
                 // Cek Apakah Pernah Punya SIP
                 'cek_sip' => $cek_sip,
-                'cek_rekomendasi' => $cek_rekomendasi,
-                'data_baru' => $data_baru
+                'data_baru' => $data_baru,
+                'cek_komentar' => $cek_komentar
             );
             $this->load->view('pemohon/include/index', $data);
         else :
@@ -48,17 +49,22 @@ class ControllerPemohonPengajuan extends CI_Controller
         $query_login = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username'), 'level' => 'PEMOHON'])->row_array();
         if ($query_login > 0) :
             $id_user = $query_login['id_user'];
-            $cek_sip = $this->select_model->cekDataSIP($id_user);
-            $data_kategori = $this->select_model->getAllDokterKategori();
-            $data = array(
-                'folder' => 'perijinan',
-                'halaman' => 'ajukan_baru',
-                'id_user' => $id_user,
-                // Cek Apakah Pernah Punya SIP
-                'cek_sip' => $cek_sip,
-                'data_kategori' => $data_kategori
-            );
-            $this->load->view('pemohon/include/index', $data);
+            $cek_pengajuan = $this->db->get_where('tbl_rekomendasi', ['id_user' => $id_user, 'status_rekomendasi' => 'KONFIRMASI'])->row_array();
+            if ($cek_pengajuan > 0) :
+                redirect('pemohon/perijinan/baru');
+            else :
+                $cek_sip = $this->select_model->cekDataSIP($id_user);
+                $data_kategori = $this->select_model->getAllDokterKategori();
+                $data = array(
+                    'folder' => 'perijinan',
+                    'halaman' => 'ajukan_baru',
+                    'id_user' => $id_user,
+                    // Cek Apakah Pernah Punya SIP
+                    'cek_sip' => $cek_sip,
+                    'data_kategori' => $data_kategori
+                );
+                $this->load->view('pemohon/include/index', $data);
+            endif;
         else :
             redirect('/');
         endif;

@@ -94,3 +94,13 @@ $route['kepala_dinas/dokter/non_aktif']                          = 'kepala_dinas
 // Menu Profile
 $route['kepala_dinas/profile']                                   = 'kepala_dinas/ControllerKepalaDinasProfile/index';
 $route['kepala_dinas/profile/crudprofile']                       = 'kepala_dinas/ControllerKepalaDinasProfile/crudprofile';
+
+// Level Admin
+// Menu Validasi
+$route['admin']                                                  = 'admin/ControllerValidasi/index';
+$route['admin/beranda']                                          = 'admin/ControllerValidasi/index';
+$route['admin/perijinan/terima']                                 = 'admin/ControllerValidasi/terima';
+$route['admin/perijinan/tolak']                                  = 'admin/ControllerValidasi/tolak';
+$route['admin/perijinan/detail/(:any)']                          = 'admin/ControllerValidasi/detail/$1';
+$route['admin/detail_berkas/(:any)']                             = 'admin/ControllerValidasi/detail/$1';
+$route['admin/pemohon_rekomendasi/crudpemohon']                  = 'admin/ControllerValidasi/crudpemohon';

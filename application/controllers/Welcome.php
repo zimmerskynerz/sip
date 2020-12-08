@@ -96,6 +96,10 @@ class Welcome extends CI_Controller
 					$this->session->set_userdata($data_login);
 					$this->session->set_flashdata('berhasil_login', '<div class="berhasil_login"></div>');
 					redirect('kabid');
+				elseif ($query_login['level'] == 'ADMIN') :
+					$this->session->set_userdata($data_login);
+					$this->session->set_flashdata('berhasil_login', '<div class="berhasil_login"></div>');
+					redirect('admin');
 				else :
 					$this->session->set_userdata($data_login);
 					$this->session->set_flashdata('berhasil_login', '<div class="berhasil_login"></div>');

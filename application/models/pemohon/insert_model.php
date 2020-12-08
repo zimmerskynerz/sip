@@ -118,7 +118,7 @@ class Insert_model extends CI_Model
             'tgl_mulai' => null,
             'tgl_berakhir' => null,
             'tgl_daftar' => date('Y-m-d'),
-            'status_rekomendasi' => 'PROSES'
+            'status_rekomendasi' => 'KONFIRMASI'
         );
         $this->db->insert('tbl_rekomendasi', $data);
     }

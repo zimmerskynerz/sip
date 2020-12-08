@@ -86,4 +86,14 @@ class Select_model extends CI_Model
         $query  = $this->db->get();
         return $query->row_array();
     }
+    function getDataKomentar($id_user)
+    {
+        $query  = $this->db->select('*');
+        $query  = $this->db->from('tbl_history');
+        $query  = $this->db->where('id_user', $id_user);
+        $query  = $this->db->order_by('id_history', 'DESC');
+        $query  = $this->db->limit(1);
+        $query  = $this->db->get();
+        return $query->row_array();
+    }
 }
