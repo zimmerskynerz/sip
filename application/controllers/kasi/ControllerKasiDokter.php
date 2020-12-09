@@ -25,8 +25,9 @@ class ControllerKasiDokter extends CI_Controller
         $query_login = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username'), 'level' => 'KASI'])->row_array();
         if ($query_login > 0) :
             $data_dokter_aktif = $this->select_model->getDataDokterAktif();
-            var_dump($data_dokter_aktif);
-            die;
+            // echo "<pre>";
+            // var_dump($data_dokter_aktif);
+            // die;
             $data = array(
                 'folder'  => 'dokter',
                 'halaman' => 'aktif',
@@ -41,9 +42,11 @@ class ControllerKasiDokter extends CI_Controller
     {
         $query_login = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username'), 'level' => 'KASI'])->row_array();
         if ($query_login > 0) :
+            $data_dokter_pasif = $this->select_model->getDataDokterPasif();
             $data = array(
                 'folder'  => 'dokter',
-                'halaman' => 'non_aktif'
+                'halaman' => 'non_aktif',
+                'data_dokter_pasif' => $data_dokter_pasif
             );
             $this->load->view('kasi/include/index', $data);
         else :
