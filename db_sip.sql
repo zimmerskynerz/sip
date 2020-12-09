@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2020 at 05:31 PM
+-- Generation Time: Dec 09, 2020 at 01:34 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.25
 
@@ -67,7 +67,9 @@ CREATE TABLE `tbl_history` (
 --
 
 INSERT INTO `tbl_history` (`id_history`, `id_user`, `id_rekomendasi`, `tgl_validasi`, `status_pengajuan`, `ket_lain`) VALUES
-(1, 5, 2, '2020-12-08', 'TERIMA', 'Berkas Diterima');
+(1, 5, 2, '2020-12-08', 'TERIMA', 'Berkas Diterima'),
+(2, 5, 2, '2020-12-08', '', 'Apa saja'),
+(3, 5, 2, '2020-12-08', 'TERIMA', 'Berkas Diterima');
 
 -- --------------------------------------------------------
 
@@ -95,7 +97,7 @@ CREATE TABLE `tbl_identitas` (
 
 INSERT INTO `tbl_identitas` (`id_user`, `nm_lengkap`, `jekel`, `tmp_lahir`, `tgl_lahir`, `agama`, `alamat`, `no_hp`, `pendidikan_terakhir`, `universitas`, `tahun`) VALUES
 (4, 'dr. MUHAMMAD YUSUF AJI WIJAYA, S.Kom,. MM,. M.Sg', 'L', 'Kudus', '1997-02-23', 'L', 'Jl. Sumber Bulusan, RT. 05/ RW. 05, Ds. hadipolo, Kec. jekulo, Kab. Kudus - Jawa Tengah', '0895411547434', 'S3', 'UNIVERSITAS OHAYO JAPAN', 2020),
-(5, 'Aji Wijaya', 'L', 'Kudus', '2020-12-08', 'Islam', 'Kudus', '08112904711', 'S3', 'Universitas Diponegoro', 2020);
+(5, 'Aji Wijaya', 'L', 'Kudus', '2020-12-08', 'L', 'Kudus', '08112904711', 'S3', 'Universitas Diponegoro', 2020);
 
 -- --------------------------------------------------------
 
@@ -154,7 +156,7 @@ CREATE TABLE `tbl_rekomendasi` (
   `tgl_mulai` date DEFAULT NULL,
   `tgl_berakhir` date DEFAULT NULL,
   `tgl_daftar` date DEFAULT NULL,
-  `status_rekomendasi` enum('PROSES','KASI','KABID','AKTIF','BLOKIR','P_PROSES','P_KASI','P_KABID','KONFIRMASI','TOLAK') NOT NULL
+  `status_rekomendasi` enum('KABID','AKTIF','NON_AKTIF','P_KABID','KONFIRMASI','TOLAK','P_KONFIRMASI') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -163,7 +165,7 @@ CREATE TABLE `tbl_rekomendasi` (
 
 INSERT INTO `tbl_rekomendasi` (`id_rekomendasi`, `id_user`, `id_kategori`, `no_str`, `tgl_berakhir_str`, `tgl_mulai`, `tgl_berakhir`, `tgl_daftar`, `status_rekomendasi`) VALUES
 (1, 4, 1, '12092300298982', '2025-11-27', '2020-11-28', '2025-11-28', '2020-11-27', 'AKTIF'),
-(2, 5, 1, '121222', '2020-12-09', NULL, NULL, '2020-12-08', 'PROSES');
+(2, 5, 1, '121222', '2020-12-09', '2020-12-08', '2025-12-09', '2020-12-08', 'AKTIF');
 
 -- --------------------------------------------------------
 
@@ -184,7 +186,8 @@ CREATE TABLE `tbl_sip` (
 --
 
 INSERT INTO `tbl_sip` (`id_sip`, `id_rekomendasi`, `tgl_mulai`, `tgl_akhir`, `status_sip`) VALUES
-(1, 1, '2020-11-28', '2025-11-28', 'AKTIF');
+(1, 1, '2020-11-28', '2025-11-28', 'AKTIF'),
+(2, 2, '2020-11-28', '2025-11-28', 'AKTIF');
 
 -- --------------------------------------------------------
 
@@ -210,7 +213,8 @@ INSERT INTO `tbl_user` (`id_user`, `username`, `email`, `password`, `level`) VAL
 (3, 'kasi', NULL, '$2y$10$HhKXwtDuy.nLHjhJhWh1EevM25KGrJSLqWJT3n8qsNxOblK/2z.aC', 'KASI'),
 (4, 'zimmerskynerz', 'ajiw100@gmail.com', '$2y$10$ggVPkjf5MTISHN.mEPaqE.oZgTRQjn11SVGY4/BVnT4y0Dp3fzi/u', 'PEMOHON'),
 (5, 'lucky', 'lucky@gmail.com', '$2y$10$z7H6yuGSEZExEIgCG/CVoOkLydHfaZhmQ4dpeVy.MqteoG5h8HDoO', 'PEMOHON'),
-(6, 'admin', 'admin@gmail.com', '$2y$10$z7H6yuGSEZExEIgCG/CVoOkLydHfaZhmQ4dpeVy.MqteoG5h8HDoO', 'ADMIN');
+(6, 'admin', 'admin@gmail.com', '$2y$10$z7H6yuGSEZExEIgCG/CVoOkLydHfaZhmQ4dpeVy.MqteoG5h8HDoO', 'ADMIN'),
+(7, 'ima', 'ima@gmail.com', '$2y$10$VEd2kqQ1rdXFBXvILX.2t.Z6YksuWuJkgQMSMw27X1gCeIKEAHGLC', 'PEMOHON');
 
 --
 -- Indexes for dumped tables
@@ -286,7 +290,7 @@ ALTER TABLE `tbl_berkas`
 -- AUTO_INCREMENT for table `tbl_history`
 --
 ALTER TABLE `tbl_history`
-  MODIFY `id_history` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_history` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_kategori`
@@ -304,13 +308,13 @@ ALTER TABLE `tbl_rekomendasi`
 -- AUTO_INCREMENT for table `tbl_sip`
 --
 ALTER TABLE `tbl_sip`
-  MODIFY `id_sip` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_sip` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
