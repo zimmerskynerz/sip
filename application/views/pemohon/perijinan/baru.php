@@ -40,8 +40,10 @@
                       if ($Data_baru->id_rekomendasi == $cek_komentar['id_rekomendasi']) :
                         if ($cek_komentar['status_pengajuan'] == 'TERIMA') :
                           echo 'Diterima';
+                        elseif ($cek_komentar['status_pengajuan'] == 'TOLAK') :
+                          echo $cek_komentar['ket_lain'];
                         else :
-                          $cek_komentar['ket_lain'];
+                          echo $cek_komentar['ket_lain'];
                         endif;;
                       else :
                         echo 'Menunggu Konfirmasi';

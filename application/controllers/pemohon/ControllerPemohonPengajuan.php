@@ -29,7 +29,7 @@ class ControllerPemohonPengajuan extends CI_Controller
             $data_baru = $this->select_model->getDataAllBaru($id_user);
             $cek_komentar = $this->select_model->getDataKomentar($id_user);
             // echo "<pre>";
-            // var_dump($data_baru);
+            // var_dump($cek_komentar);
             // die;
             $data = array(
                 'folder' => 'perijinan',

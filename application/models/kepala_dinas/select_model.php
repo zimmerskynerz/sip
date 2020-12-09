@@ -91,6 +91,7 @@ class Select_model extends CI_Model
         $query   = $this->db->join('tbl_kantor as G', 'G.id_user=E.id_user');
         $query   = $this->db->where('A.status_sip', 'AKTIF');
         $query   = $this->db->where('A.tgl_akhir >', $tgl_ini);
+        $query  = $this->db->group_by('E.id_rekomendasi');
         $query   = $this->db->get();
         return $query->result();
     }
@@ -107,6 +108,7 @@ class Select_model extends CI_Model
         $query   = $this->db->join('tbl_kantor as G', 'G.id_user=E.id_user');
         $query   = $this->db->where('A.status_sip', 'AKTIF');
         $query   = $this->db->where('A.tgl_akhir <', $tgl_ini);
+        $query  = $this->db->group_by('E.id_rekomendasi');
         $query   = $this->db->get();
         return $query->result();
     }

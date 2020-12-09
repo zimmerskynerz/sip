@@ -50,6 +50,38 @@ class ControllerValidasi extends CI_Controller
             redirect('/');
         endif;
     }
+    public function terima()
+    {
+        $query_login = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username'), 'level' => 'ADMIN'])->row_array();
+        if ($query_login > 0) :
+            $data_baru = $this->select_model->getDataAllBaruTerima();
+            $data = array(
+                'folder'  => 'beranda',
+                'halaman' => 'terima',
+                // Halaman Konfirmasi
+                'data_baru' => $data_baru
+            );
+            $this->load->view('admin/include/index', $data);
+        else :
+            redirect('/');
+        endif;
+    }
+    public function tolak()
+    {
+        $query_login = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username'), 'level' => 'ADMIN'])->row_array();
+        if ($query_login > 0) :
+            $data_baru = $this->select_model->getDataAllBaruTolak();
+            $data = array(
+                'folder'  => 'beranda',
+                'halaman' => 'tolak',
+                // Halaman Konfirmasi
+                'data_baru' => $data_baru
+            );
+            $this->load->view('admin/include/index', $data);
+        else :
+            redirect('/');
+        endif;
+    }
     public function crudpemohon()
     {
         if (isset($_POST['terimaKasiRekomendasi'])) :
