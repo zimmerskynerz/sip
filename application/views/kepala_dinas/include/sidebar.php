@@ -43,15 +43,15 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="<?= base_url('kepala_dinas/validasi') ?>" class="nav-link <?php echo $this->uri->segment(2) == 'validasi' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-file-signature"></i>
                         <p>
                             Validasi SIP
                         </p>
                     </a>
-                </li>
-                <!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'dokter' ? 'menu-open' : '' ?>">
+                </li> -->
+                <li class="nav-item <?php echo $this->uri->segment(2) == 'dokter' ? 'menu-open' : '' ?>">
                     <a class="nav-link">
                         <i class="nav-icon fas fa-user-md"></i>
                         <p>
@@ -73,15 +73,15 @@
                             </a>
                         </li>
                     </ul>
-                </li> -->
-                <li class="nav-item">
+                </li>
+                <!-- <li class="nav-item">
                     <a href="<?= base_url('kepala_dinas/profile') ?>" class="nav-link <?php echo $this->uri->segment(2) == 'profile' ? 'active' : '' ?>">
                         <i class="nav-icon far fa-user"></i>
                         <p>
                             Profil
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="<?= base_url('login/logout') ?>" class="nav-link ">
                         <i class="nav-icon fas fa-sign-out-alt"></i>

@@ -23,9 +23,9 @@ class Update_model extends CI_Model
         $data_sip = array(
             'id_sip' => '',
             'id_rekomendasi' => $id_rekomendasi,
-            'tgl_mulai' => null,
-            'tgl_akhir' => null,
-            'status_sip' => 'PROSES'
+            'tgl_mulai' => $tgl_ini,
+            'tgl_akhir' => $tgl_akhir,
+            'status_sip' => 'AKTIF'
         );
         $this->db->insert('tbl_sip', $data_sip);
     }
@@ -58,9 +58,9 @@ class Update_model extends CI_Model
         $this->db->update('tbl_rekomendasi', $data);
         $data_sip = array(
             'id_rekomendasi' => $id_rekomendasi,
-            'tgl_mulai' => null,
-            'tgl_akhir' => null,
-            'status_sip' => 'P_PROSES'
+            'tgl_mulai' => $tgl_ini,
+            'tgl_akhir' => $tgl_akhir,
+            'status_sip' => 'AKTIF'
         );
         $this->db->where('id_rekomendasi', $id_rekomendasi);
         $this->db->update('tbl_sip', $data_sip);

@@ -39,7 +39,7 @@
                                         <td style="text-align: center;">
                                             <?php if ($Data_baru->status_sip == 'AKTIF') : ?>
                                                 <?php
-                                                if ($Data_baru->tgl_akhir >= date('Y-m-d')) : ?>
+                                                if ($Data_baru->tgl_akhir > date('Y-m-d')) : ?>
                                                     Aktif
                                                 <?php else : ?>
                                                     <a id="detail_renew" href="javascript:void(0);" class="bs-tooltip" data-toggle="modal" data-target="#renew_detail" data-placement="top" title="" data-original-title="Detail" data-id_user="<?= $Data_baru->id_user ?>" data-id_rekomendasi="<?= $Data_baru->id_rekomendasi ?>" data-id_sip="<?= $Data_baru->id_sip ?>" data-nm_lengkap="<?= $Data_baru->nm_lengkap ?>" data-no_str="<?= $Data_baru->no_str ?>" data-masa_no_str="<?= date('d F Y', strtotime($Data_baru->tgl_berakhir_str)) ?>" data-no_rekomendasi="00<?= $Data_baru->id_rekomendasi ?>/SR.<?= $Data_baru->singkatan ?>/<?= date('Y', strtotime($Data_baru->tgl_daftar)) ?>/KUDUS-JT12" data-masa_no_rekomendasi="<?= date('d F Y', strtotime($Data_baru->tgl_berakhir)) ?>" data-no_sip="33.<?= $Data_baru->id_sip ?>/59<?= $Data_baru->id_rekomendasi ?><?= $Data_baru->id_sip ?>/<?= $Data_baru->singkatan ?>/0<?= $Data_baru->id_sip ?>/II/<?= date('Y', strtotime($Data_baru->tgl_daftar)) ?>" data-masa_no_sip="<?= date('d F Y', strtotime($Data_baru->tgl_akhir)) ?>">

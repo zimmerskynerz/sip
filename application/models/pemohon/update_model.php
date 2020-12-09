@@ -246,7 +246,7 @@ class Update_model extends CI_Model
             'tgl_mulai' => null,
             'tgl_berakhir' => null,
             'tgl_daftar' => date('Y-m-d'),
-            'status_rekomendasi' => 'P_PROSES'
+            'status_rekomendasi' => 'P_KONFIRMASI'
         );
         $this->db->where('id_user', htmlentities($this->input->post('id_user')));
         $this->db->update('tbl_rekomendasi', $data);

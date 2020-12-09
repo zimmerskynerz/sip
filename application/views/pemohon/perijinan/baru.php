@@ -7,7 +7,9 @@
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">Daftar Permohonan</h3>
-            <a type="button" style="position: absolute; right:12px; top:5px" class="btn btn-primary" href="<?= base_url('pemohon/perijinan/ajukan_baru') ?>"><i class="fas fa-plus-circle"></i> Tambah</a>
+            <?php if ($cek_sip == 0) : ?>
+              <a type="button" style="position: absolute; right:12px; top:5px" class="btn btn-primary" href="<?= base_url('pemohon/perijinan/ajukan_baru') ?>"><i class="fas fa-plus-circle"></i> Tambah</a>
+            <?php endif; ?>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
