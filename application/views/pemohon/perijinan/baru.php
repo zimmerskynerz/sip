@@ -7,7 +7,7 @@
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">Daftar Permohonan</h3>
-            <?php if ($cek_sip == 0) : ?>
+            <?php if ($cek_rekomen == 0) : ?>
               <a type="button" style="position: absolute; right:12px; top:5px" class="btn btn-primary" href="<?= base_url('pemohon/perijinan/ajukan_baru') ?>"><i class="fas fa-plus-circle"></i> Tambah</a>
             <?php endif; ?>
           </div>
@@ -23,6 +23,7 @@
                   <th style="text-align: center;">Nomor STR</th>
                   <th style="text-align: center;">Masa Berlaku STR</th>
                   <th style="text-align: center;">Komentar</th>
+                  <th style="text-align: center;">Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -49,6 +50,19 @@
                         echo 'Menunggu Konfirmasi';
                       endif;
                       ?>
+                    </td>
+                    <td>
+                      <center>
+                        <?php
+                        if ($cek_rekomen['status_rekomendasi'] == 'T_KONFIRMASI') : ?>
+                          <a href="<?= base_url('pemohon/dokumen/berkas_permohonan') ?>" class="bs-tooltip" data-placement="top" title="" data-original-title="Detail">
+                            <span style="font-size: 24px; color: Dodgerblue;">
+                              <i class="fas fa-edit"></i>
+                            </span>
+                          </a>
+                        <?php endif;
+                        ?>
+                      </center>
                     </td>
                   </tr>
                   <?php $no++; ?>

@@ -24,7 +24,7 @@ class Select_model extends CI_Model
         $query  = $this->db->join('tbl_kantor as C', 'A.id_user=C.id_user');
         $query  = $this->db->join('tbl_rekomendasi as D', 'A.id_user=D.id_user');
         $query  = $this->db->join('tbl_kategori as E', 'E.id_kategori=D.id_kategori');
-        $query  = $this->db->where('D.status_rekomendasi', 'AKTIF');
+        $query  = $this->db->where('D.status_rekomendasi !=', 'T_KONFIRMASI');
         $query  = $this->db->group_by('D.id_rekomendasi');
         $query  = $this->db->get();
         return $query->result();
@@ -38,7 +38,7 @@ class Select_model extends CI_Model
         $query  = $this->db->join('tbl_rekomendasi as D', 'A.id_user=D.id_user');
         $query  = $this->db->join('tbl_kategori as E', 'E.id_kategori=D.id_kategori');
         $query  = $this->db->join('tbl_history as F', 'F.id_rekomendasi=D.id_rekomendasi');
-        $query  = $this->db->where('D.status_rekomendasi', 'TOLAK');
+        $query  = $this->db->where('D.status_rekomendasi', 'T_KONFIRMASI');
         $query  = $this->db->group_by('D.id_rekomendasi');
         $query  = $this->db->get();
         return $query->result();

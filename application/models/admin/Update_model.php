@@ -8,11 +8,11 @@ class Update_model extends CI_Model
         if ($status_pengjauan == 1) :
             $alasan = 'Berkas Diterima';
             $status = 'TERIMA';
-            $status_rekomendasi = 'KABID';
+            $status_rekomendasi = 'KASI';
         else :
             $alasan = $this->input->post('alasan');
             $status = 'TOLAK';
-            $status_rekomendasi = 'TOLAK';
+            $status_rekomendasi = 'T_KONFIRMASI';
         endif;
         $id_rekomendasi = htmlentities($this->input->post('id_rekomendasi'));
         $data = array(

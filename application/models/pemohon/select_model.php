@@ -82,7 +82,6 @@ class Select_model extends CI_Model
         $query  = $this->db->select('*');
         $query  = $this->db->from('tbl_rekomendasi as A');
         $query  = $this->db->join('tbl_kategori as B', 'A.id_kategori=B.id_kategori');
-        $query  = $this->db->join('tbl_sip as C', 'A.id_rekomendasi=C.id_rekomendasi');
         $query  = $this->db->where('A.id_user', $id_user);
         $query  = $this->db->get();
         return $query->row_array();

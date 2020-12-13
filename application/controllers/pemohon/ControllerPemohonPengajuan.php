@@ -27,6 +27,7 @@ class ControllerPemohonPengajuan extends CI_Controller
             $id_user = $query_login['id_user'];
             $cek_sip = $this->select_model->cekDataSIP($id_user);
             $data_baru = $this->select_model->getDataAllBaru($id_user);
+            $cek_rekomen = $this->db->get_where('tbl_rekomendasi', ['id_user' => $id_user])->row_array();
             $cek_komentar = $this->select_model->getDataKomentar($id_user);
             // echo "<pre>";
             // var_dump($cek_komentar);
@@ -37,7 +38,8 @@ class ControllerPemohonPengajuan extends CI_Controller
                 // Cek Apakah Pernah Punya SIP
                 'cek_sip' => $cek_sip,
                 'data_baru' => $data_baru,
-                'cek_komentar' => $cek_komentar
+                'cek_komentar' => $cek_komentar,
+                'cek_rekomen' => $cek_rekomen
             );
             $this->load->view('pemohon/include/index', $data);
         else :

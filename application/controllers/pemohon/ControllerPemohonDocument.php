@@ -109,7 +109,7 @@ class ControllerPemohonDocument extends CI_Controller
             $data_berkas = $this->select_model->getAllBerkasDokter($id_user);
             $data_rekomendasi = $this->select_model->getAllRekomendasi($id_user);
             $data_kategori = $this->select_model->getAllDokterKategori();
-            // var_dump($data_baru);
+            // var_dump($data_rekomendasi);
             // die;
             $data = array(
                 'folder' => 'dokumen',
@@ -138,6 +138,13 @@ class ControllerPemohonDocument extends CI_Controller
             $this->update_model->ubahTblKantor();
             $this->session->set_flashdata('berhasil_kirim_berkas', '<div class="berhasil_kirim_berkas"></div>');
             redirect('pemohon/dokumen/berkas_permohonan');
+        endif;
+        if (isset($_POST['kirim_ulang_admin'])) :
+            $this->update_model->ubahTblIdentitas();
+            $this->update_model->ubahTblKantor();
+            $this->update_model->kirim_ulang_admin();
+            $this->session->set_flashdata('berhasil_kirim_berkas', '<div class="berhasil_kirim_berkas"></div>');
+            redirect('pemohon/perijinan/baru');
         endif;
     }
 }

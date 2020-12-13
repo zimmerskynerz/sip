@@ -204,9 +204,11 @@
                         </div>
                     </div>
                     <!-- /.card-body -->
-                    <div class="card-footer">
-                        <button type="submit" id="ubahDataDiri" name="ubahDataDiri" class="btn btn-primary float-right">UBAH DATA DIRI</button>
-                    </div>
+                    <?php if ($data_rekomendasi['status_rekomendasi'] == 'T_KONFIRMASI') : ?>
+                        <div class="card-footer">
+                            <button type="submit" id="kirim_ulang_admin" name="kirim_ulang_admin" class="btn btn-primary float-right">KIRIM ULANG</button>
+                        </div>
+                    <?php endif; ?>
                     <!-- /.card-footer -->
                 </div>
                 <?php echo form_close(); ?>
