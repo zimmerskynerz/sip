@@ -17,7 +17,7 @@ class ControllerKasiPemohonRekomendasi extends CI_Controller
         if ($query_login > 0) :
             redirect('kasi');
         else :
-            redirect('/');
+            redirect('login');
         endif;
     }
     public function baru()
@@ -32,7 +32,7 @@ class ControllerKasiPemohonRekomendasi extends CI_Controller
             );
             $this->load->view('kasi/include/index', $data);
         else :
-            redirect('/');
+            redirect('login');
         endif;
     }
     public function perpanjang()
@@ -47,7 +47,7 @@ class ControllerKasiPemohonRekomendasi extends CI_Controller
             );
             $this->load->view('kasi/include/index', $data);
         else :
-            redirect('/');
+            redirect('login');
         endif;
     }
     public function detail_berkas($id)
@@ -70,7 +70,7 @@ class ControllerKasiPemohonRekomendasi extends CI_Controller
             );
             $this->load->view('kasi/include/index', $data);
         else :
-            redirect('/');
+            redirect('login');
         endif;
     }
     public function crudpemohon()
@@ -88,7 +88,7 @@ class ControllerKasiPemohonRekomendasi extends CI_Controller
                 redirect('kasi/pemohon_rekomendasi/perpanjang');
             endif;
         else :
-            redirect('/');
+            redirect('login');
         endif;
     }
 }

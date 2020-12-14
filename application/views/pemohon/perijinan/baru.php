@@ -40,7 +40,7 @@
                       <?php
                       if ($Data_baru->id_rekomendasi == $cek_komentar['id_rekomendasi']) :
                         if ($cek_komentar['status_pengajuan'] == 'TERIMA') :
-                          echo 'Diterima';
+                          echo 'Menunggu Konfirmasi KASI';
                         elseif ($cek_komentar['status_pengajuan'] == 'TOLAK') :
                           echo $cek_komentar['ket_lain'];
                         else :

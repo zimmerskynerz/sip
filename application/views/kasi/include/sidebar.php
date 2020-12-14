@@ -28,7 +28,7 @@
                         </p>
                     </a>
                 </li>
-                <!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'pemohon_rekomendasi' ? 'menu-open' : '' ?>">
+                <li class="nav-item <?php echo $this->uri->segment(2) == 'pemohon_rekomendasi' ? 'menu-open' : '' ?>">
                     <a class="nav-link">
                         <i class="nav-icon fas fa-notes-medical"></i>
                         <p>
@@ -50,15 +50,15 @@
                             </a>
                         </li>
                     </ul>
-                </li> -->
-                <!-- <li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a href="<?= base_url('kasi/validasi') ?>" class="nav-link <?php echo $this->uri->segment(2) == 'validasi' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-file-signature"></i>
                         <p>
                             Validasi SIP
                         </p>
                     </a>
-                </li> -->
+                </li>
                 <li class="nav-item <?php echo $this->uri->segment(2) == 'dokter' ? 'menu-open' : '' ?>">
                     <a class="nav-link">
                         <i class="nav-icon fas fa-user-md"></i>

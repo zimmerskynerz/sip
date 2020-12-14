@@ -20,7 +20,7 @@ class Select_model extends CI_Model
         $query  = $this->db->join('tbl_kantor as C', 'A.id_user=C.id_user');
         $query  = $this->db->join('tbl_rekomendasi as D', 'A.id_user=D.id_user');
         $query  = $this->db->join('tbl_kategori as E', 'E.id_kategori=D.id_kategori');
-        $query  = $this->db->where('D.status_rekomendasi', 'PROSES');
+        $query  = $this->db->where('D.status_rekomendasi', 'KASI');
         $query  = $this->db->get();
         return $query->result();
     }
