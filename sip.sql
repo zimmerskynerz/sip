@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2020 at 12:47 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.3.25
+-- Waktu pembuatan: 15 Des 2020 pada 04.12
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.3.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_berkas`
+-- Struktur dari tabel `tbl_berkas`
 --
 
 CREATE TABLE `tbl_berkas` (
@@ -40,7 +40,7 @@ CREATE TABLE `tbl_berkas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_berkas`
+-- Dumping data untuk tabel `tbl_berkas`
 --
 
 INSERT INTO `tbl_berkas` (`id_berkas`, `id_user`, `foto`, `ijazah`, `ktp`, `str_legalisir`, `s_pernyataan`, `s_persetujuan`, `bpjs`) VALUES
@@ -52,7 +52,7 @@ INSERT INTO `tbl_berkas` (`id_berkas`, `id_user`, `foto`, `ijazah`, `ktp`, `str_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_history`
+-- Struktur dari tabel `tbl_history`
 --
 
 CREATE TABLE `tbl_history` (
@@ -65,7 +65,7 @@ CREATE TABLE `tbl_history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_history`
+-- Dumping data untuk tabel `tbl_history`
 --
 
 INSERT INTO `tbl_history` (`id_history`, `id_user`, `id_rekomendasi`, `tgl_validasi`, `status_pengajuan`, `ket_lain`) VALUES
@@ -76,12 +76,18 @@ INSERT INTO `tbl_history` (`id_history`, `id_user`, `id_rekomendasi`, `tgl_valid
 (5, 8, 3, '2020-12-13', 'TERIMA', 'Berkas Diterima'),
 (6, 9, 4, '2020-12-14', 'TOLAK', 'Tanggal Lahir tidak Sesuai'),
 (7, 9, 4, '2020-12-14', 'TERIMA', 'Berkas Diterima'),
-(8, 9, 4, '2020-12-14', 'TOLAK', 'STR Errors');
+(8, 9, 4, '2020-12-14', 'TOLAK', 'STR Errors'),
+(9, 9, 4, '2020-12-15', 'TERIMA', 'Berkas Diterima'),
+(10, 8, 3, '2020-12-15', 'TOLAK', 'Nama Harus Beserta Title'),
+(11, 9, 4, '2020-12-15', 'TOLAK', 'Nama Harus Memakai Title'),
+(12, 9, 4, '2020-12-15', 'TERIMA', 'Berkas Diterima KABID'),
+(13, 9, 4, '2020-12-15', 'TOLAK', 'Anda Kurang Menarik'),
+(14, 9, 4, '2020-12-15', 'TERIMA', 'Berkas Diterima Kepala');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_identitas`
+-- Struktur dari tabel `tbl_identitas`
 --
 
 CREATE TABLE `tbl_identitas` (
@@ -99,19 +105,19 @@ CREATE TABLE `tbl_identitas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_identitas`
+-- Dumping data untuk tabel `tbl_identitas`
 --
 
 INSERT INTO `tbl_identitas` (`id_user`, `nm_lengkap`, `jekel`, `tmp_lahir`, `tgl_lahir`, `agama`, `alamat`, `no_hp`, `pendidikan_terakhir`, `universitas`, `tahun`) VALUES
 (4, 'dr. MUHAMMAD YUSUF AJI WIJAYA, S.Kom,. MM,. M.Sg', 'L', 'Kudus', '1997-02-23', 'L', 'Jl. Sumber Bulusan, RT. 05/ RW. 05, Ds. hadipolo, Kec. jekulo, Kab. Kudus - Jawa Tengah', '0895411547434', 'S3', 'UNIVERSITAS OHAYO JAPAN', 2020),
 (5, 'Aji Wijaya', 'L', 'Kudus', '2020-12-08', 'L', 'Kudus', '08112904711', 'S3', 'Universitas Diponegoro', 2020),
 (8, 'Aji Wijaya', 'L', 'Kudus', '1997-02-23', 'Katholik', 'Jl. Sumber Bulusan, RT. 05/ RW. 09', '089283782783', 'S3', 'Universitas Diponegoro', 2020),
-(9, 'Tsamarah Muthia RInggahadini', 'P', 'Kudus', '1997-04-23', 'P', 'Kudus', '089231827387', 'S3', 'UNIVERSITAS MURIA KUDUS', 2019);
+(9, 'dr. Tsamarah Muthia RInggahadini, A.MD, A.Dg, M.Hs', 'P', 'Kudus', '1997-04-23', 'P', 'Kudus', '089231827387', 'S3', 'UNIVERSITAS MURIA KUDUS', 2019);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kantor`
+-- Struktur dari tabel `tbl_kantor`
 --
 
 CREATE TABLE `tbl_kantor` (
@@ -122,19 +128,19 @@ CREATE TABLE `tbl_kantor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_kantor`
+-- Dumping data untuk tabel `tbl_kantor`
 --
 
 INSERT INTO `tbl_kantor` (`id_user`, `nm_kantor`, `alamat_praktik`, `no_kantor`) VALUES
 (4, 'PERMATA HUSADA FARMA', 'Jl. Kudus - Pati KM. 3, Ds. Dersalam, Kec. Bae, Kab. Kudus - Jawa Tengah', '08112904711'),
 (5, 'CV. Aburizal Sehat', 'AAAAAAAAAAAAAAAAAAA', '08112904711'),
 (8, 'CV. Aburizal Sehat', 'Jl. Sumber Bulusan, RT. 05/ RW. 05', '0291471127'),
-(9, 'Farmasi Husada', 'Kudus', '0898838387387');
+(9, 'Farmasi Husada', 'Jl. Sumber Bulusan, RT. 05/ Rw. 09', '0898838387387');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kategori`
+-- Struktur dari tabel `tbl_kategori`
 --
 
 CREATE TABLE `tbl_kategori` (
@@ -145,7 +151,7 @@ CREATE TABLE `tbl_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_kategori`
+-- Dumping data untuk tabel `tbl_kategori`
 --
 
 INSERT INTO `tbl_kategori` (`id_kategori`, `nm_kategori`, `singkatan`, `status_kategori`) VALUES
@@ -155,7 +161,7 @@ INSERT INTO `tbl_kategori` (`id_kategori`, `nm_kategori`, `singkatan`, `status_k
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_rekomendasi`
+-- Struktur dari tabel `tbl_rekomendasi`
 --
 
 CREATE TABLE `tbl_rekomendasi` (
@@ -167,23 +173,23 @@ CREATE TABLE `tbl_rekomendasi` (
   `tgl_mulai` date DEFAULT NULL,
   `tgl_berakhir` date DEFAULT NULL,
   `tgl_daftar` date DEFAULT NULL,
-  `status_rekomendasi` enum('KONFIRMASI','T_KONFIRMASI','KASI','AKTIF') NOT NULL
+  `status_rekomendasi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_rekomendasi`
+-- Dumping data untuk tabel `tbl_rekomendasi`
 --
 
 INSERT INTO `tbl_rekomendasi` (`id_rekomendasi`, `id_user`, `id_kategori`, `no_str`, `tgl_berakhir_str`, `tgl_mulai`, `tgl_berakhir`, `tgl_daftar`, `status_rekomendasi`) VALUES
 (1, 4, 1, '12092300298982', '2025-11-27', '2020-11-28', '2025-11-28', '2020-11-27', ''),
 (2, 5, 1, '121222', '2020-12-09', '2020-12-08', '2025-12-09', '2020-12-08', ''),
-(3, 8, 1, '2302970029838', '2024-01-13', NULL, NULL, '2020-12-12', 'KASI'),
-(4, 9, 2, '120920937', '2025-12-14', NULL, NULL, '2020-12-14', '');
+(3, 8, 1, '2302970029838', '2024-01-13', NULL, NULL, '2020-12-12', 'T_KABID'),
+(4, 9, 2, '15652635625', '2025-12-14', '2020-12-15', '2025-12-15', '2020-12-14', 'AKTIF');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_sip`
+-- Struktur dari tabel `tbl_sip`
 --
 
 CREATE TABLE `tbl_sip` (
@@ -195,17 +201,18 @@ CREATE TABLE `tbl_sip` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_sip`
+-- Dumping data untuk tabel `tbl_sip`
 --
 
 INSERT INTO `tbl_sip` (`id_sip`, `id_rekomendasi`, `tgl_mulai`, `tgl_akhir`, `status_sip`) VALUES
 (1, 1, '2020-11-28', '2025-11-28', 'AKTIF'),
-(2, 2, '2020-11-28', '2025-11-28', 'AKTIF');
+(2, 2, '2020-11-28', '2025-11-28', 'AKTIF'),
+(3, 4, '2020-12-15', '2025-12-15', 'AKTIF');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Struktur dari tabel `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -217,7 +224,7 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_user`
+-- Dumping data untuk tabel `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_user`, `username`, `email`, `password`, `level`) VALUES
@@ -236,14 +243,14 @@ INSERT INTO `tbl_user` (`id_user`, `username`, `email`, `password`, `level`) VAL
 --
 
 --
--- Indexes for table `tbl_berkas`
+-- Indeks untuk tabel `tbl_berkas`
 --
 ALTER TABLE `tbl_berkas`
   ADD PRIMARY KEY (`id_berkas`),
   ADD KEY `use_id_user02` (`id_user`);
 
 --
--- Indexes for table `tbl_history`
+-- Indeks untuk tabel `tbl_history`
 --
 ALTER TABLE `tbl_history`
   ADD PRIMARY KEY (`id_history`),
@@ -251,25 +258,25 @@ ALTER TABLE `tbl_history`
   ADD KEY `use_id_rekomendasi` (`id_rekomendasi`);
 
 --
--- Indexes for table `tbl_identitas`
+-- Indeks untuk tabel `tbl_identitas`
 --
 ALTER TABLE `tbl_identitas`
   ADD KEY `use_id_user01` (`id_user`);
 
 --
--- Indexes for table `tbl_kantor`
+-- Indeks untuk tabel `tbl_kantor`
 --
 ALTER TABLE `tbl_kantor`
   ADD KEY `use_id_user04` (`id_user`);
 
 --
--- Indexes for table `tbl_kategori`
+-- Indeks untuk tabel `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `tbl_rekomendasi`
+-- Indeks untuk tabel `tbl_rekomendasi`
 --
 ALTER TABLE `tbl_rekomendasi`
   ADD PRIMARY KEY (`id_rekomendasi`),
@@ -277,14 +284,14 @@ ALTER TABLE `tbl_rekomendasi`
   ADD KEY `use_id_kategori` (`id_kategori`);
 
 --
--- Indexes for table `tbl_sip`
+-- Indeks untuk tabel `tbl_sip`
 --
 ALTER TABLE `tbl_sip`
   ADD PRIMARY KEY (`id_sip`),
   ADD KEY `id_rekomendasi` (`id_rekomendasi`);
 
 --
--- Indexes for table `tbl_user`
+-- Indeks untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id_user`),
@@ -292,83 +299,83 @@ ALTER TABLE `tbl_user`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_berkas`
+-- AUTO_INCREMENT untuk tabel `tbl_berkas`
 --
 ALTER TABLE `tbl_berkas`
   MODIFY `id_berkas` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_history`
+-- AUTO_INCREMENT untuk tabel `tbl_history`
 --
 ALTER TABLE `tbl_history`
-  MODIFY `id_history` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_history` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `tbl_kategori`
+-- AUTO_INCREMENT untuk tabel `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
   MODIFY `id_kategori` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_rekomendasi`
+-- AUTO_INCREMENT untuk tabel `tbl_rekomendasi`
 --
 ALTER TABLE `tbl_rekomendasi`
   MODIFY `id_rekomendasi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_sip`
+-- AUTO_INCREMENT untuk tabel `tbl_sip`
 --
 ALTER TABLE `tbl_sip`
-  MODIFY `id_sip` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_sip` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_user`
+-- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tbl_berkas`
+-- Ketidakleluasaan untuk tabel `tbl_berkas`
 --
 ALTER TABLE `tbl_berkas`
   ADD CONSTRAINT `use_id_user02` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`);
 
 --
--- Constraints for table `tbl_history`
+-- Ketidakleluasaan untuk tabel `tbl_history`
 --
 ALTER TABLE `tbl_history`
   ADD CONSTRAINT `use_id_rekomendasi` FOREIGN KEY (`id_rekomendasi`) REFERENCES `tbl_rekomendasi` (`id_rekomendasi`),
   ADD CONSTRAINT `use_id_user4` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`);
 
 --
--- Constraints for table `tbl_identitas`
+-- Ketidakleluasaan untuk tabel `tbl_identitas`
 --
 ALTER TABLE `tbl_identitas`
   ADD CONSTRAINT `use_id_user01` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`);
 
 --
--- Constraints for table `tbl_kantor`
+-- Ketidakleluasaan untuk tabel `tbl_kantor`
 --
 ALTER TABLE `tbl_kantor`
   ADD CONSTRAINT `use_id_user04` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`);
 
 --
--- Constraints for table `tbl_rekomendasi`
+-- Ketidakleluasaan untuk tabel `tbl_rekomendasi`
 --
 ALTER TABLE `tbl_rekomendasi`
   ADD CONSTRAINT `use_id_kategori` FOREIGN KEY (`id_kategori`) REFERENCES `tbl_kategori` (`id_kategori`),
   ADD CONSTRAINT `use_id_user03` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`);
 
 --
--- Constraints for table `tbl_sip`
+-- Ketidakleluasaan untuk tabel `tbl_sip`
 --
 ALTER TABLE `tbl_sip`
   ADD CONSTRAINT `id_rekomendasi` FOREIGN KEY (`id_rekomendasi`) REFERENCES `tbl_rekomendasi` (`id_rekomendasi`);
