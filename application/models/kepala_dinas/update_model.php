@@ -13,7 +13,7 @@ class Update_model extends CI_Model
         $tgl_ini   = date('Y-m-d');
         $cek_tgl = $this->select_model->cekTanggal();
         $tgl_akhir = $cek_tgl['max_tanggal'];
-        // ISI
+        // ISI 
         $status_pengjauan = $this->input->post('status_pengjauan');
         if ($status_pengjauan == 1) :
             $alasan = 'Berkas Diterima Kepala';
