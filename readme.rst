@@ -10,7 +10,7 @@ di kontak yang sudah disertakan dibawah.
 
 
 1. Jangan Merubah Nama Folder yang sudah didownload dari repository
-2. Buatlah database dengan nama "db_sip"
+2. Buatlah database dengan nama "sip"
 3. Import database yang berada pada folder assets->database
 4. jalankan seperti biasanya
 
@@ -26,6 +26,10 @@ password : SALOKU123abc
 
 kepala
 username : kepala
+password : SALOKU123abc
+
+admin
+username : admin
 password : SALOKU123abc
 
 Silahkan untuk pengembangan program bisa menghubungi Nomor dibawah ini :
