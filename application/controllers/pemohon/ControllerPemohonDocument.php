@@ -46,6 +46,8 @@ class ControllerPemohonDocument extends CI_Controller
             $data_identitas = $this->select_model->getAllIdentitasDokter($id_user);
             $data_rekomendasi = $this->select_model->getAllRekomendasi($id_user);
             $data_berkas = $this->select_model->getAllBerkasDokter($id_user);
+            // var_dump($cek_sip);
+            // die;
             $data = array(
                 'folder' => 'dokumen',
                 'halaman' => 'praktek/index',

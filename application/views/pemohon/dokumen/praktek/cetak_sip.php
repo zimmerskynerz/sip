@@ -36,7 +36,7 @@
                 <hr>
                 <center>
                     <h3><b><u>SURAT IZIN PRAKTIK ( SIP ) DOKTER</u></b></h3>
-                    <h5>Nomor : 33.<?= $data_rekomendasi['id_sip'] ?>/59<?= $data_rekomendasi['id_rekomendasi'] ?><?= $data_rekomendasi['id_sip']  ?>/<?= $data_rekomendasi['singkatan'] ?>/0<?= $data_rekomendasi['id_sip'] ?>/II/<?= date('Y', strtotime($data_rekomendasi['tgl_daftar'])) ?></h5>
+                    <h5>Nomor : 33.<?= $cek_sip['id_sip'] ?>/59<?= $data_rekomendasi['id_rekomendasi'] ?><?= $cek_sip['id_sip']  ?>/<?= $data_rekomendasi['singkatan'] ?>/0<?= $cek_sip['id_sip'] ?>/II/<?= date('Y', strtotime($data_rekomendasi['tgl_daftar'])) ?></h5>
                 </center>
                 <p>Berdasarkan Peraturan Menteri Kesehatan Republik Indonesia Nomor : 2052/Menkes/Per/X/2011 tentang Izin Praktik dan Pelaksanaan Praktik Kedokteran dan peraturan Bupati Kudus Nomor 30 Tahun 2010 tentang Perizinan Bidang Kesehatan, sebagaimana telah diubah dengan Peraturan Bupati Nomor 25 Tahun 2012 tentang Perubahan Atas Peraturan Bupati Kudus Nomor 30 Tahun 2010 tentang Perizinan Bidang Kesehatan.
                     yang bertanda tangan dibawah ini, Kepala Dinas Kesehatan Kabupaten Kudus memberikan Izin Praktik kepada
@@ -98,12 +98,8 @@
                             <th><img src="<?= base_url('assets/') ?>berkas/<?= $data_berkas['foto'] ?>" width="150px" alt=""></th>
                             <th>
                                 <center>
-                                    <h7>Kudus, <?= date('d F Y', strtotime($data_rekomendasi['tgl_mulai'])) ?></h7>
-                                    <h6>Kepala Dinas Kesehatan Kab. Kudus</h6>
-                                    <br><br><br>
-                                    <h6><b><u>JOKO DWI PUTRANTO, SH, MM</u></b></h6>
-                                    <h8>Pembina Utama Muda</h8>
-                                    <h6>NIP : 19600816 199202 1 001</h6>
+                                    <h5 style="position:absolute; right: 200px; bottom:400px;">Kudus, <?= date('d F Y', strtotime($data_rekomendasi['tgl_mulai'])) ?></h5>
+                                    <img src="<?= base_url('assets/dist/img/ttd2.png') ?>" width="320px" style="position:absolute; right: 200px; bottom:200px;" alt="">
                                 </center>
                             </th>
                         </tr>
