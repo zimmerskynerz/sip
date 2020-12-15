@@ -9,25 +9,52 @@ class Update_model extends CI_Model
     }
     function terima_rekomendasi()
     {
+        // tANGGAL
         $tgl_ini   = date('Y-m-d');
         $cek_tgl = $this->select_model->cekTanggal();
         $tgl_akhir = $cek_tgl['max_tanggal'];
-        $id_rekomendasi = htmlentities($this->input->post('id_rekomendasi'));
-        $data = array(
-            'tgl_mulai' => $tgl_ini,
-            'tgl_berakhir' => $tgl_akhir,
-            'status_rekomendasi' => 'AKTIF'
-        );
-        $this->db->where('id_rekomendasi', $id_rekomendasi);
-        $this->db->update('tbl_rekomendasi', $data);
-        $data_sip = array(
-            'id_sip' => '',
+        // ISI
+        $status_pengjauan = $this->input->post('status_pengjauan');
+        if ($status_pengjauan == 1) :
+            $alasan = 'Berkas Diterima Kepala';
+            $status = 'TERIMA';
+            $status_rekomendasi = 'AKTIF';
+            $id_rekomendasi = htmlentities($this->input->post('id_rekomendasi'));
+            $data = array(
+                'tgl_mulai' => $tgl_ini,
+                'tgl_berakhir' => $tgl_akhir,
+                'status_rekomendasi' => $status_rekomendasi
+            );
+            $this->db->where('id_rekomendasi', $id_rekomendasi);
+            $this->db->update('tbl_rekomendasi', $data);
+            $data_sip = array(
+                'id_sip' => '',
+                'id_rekomendasi' => $id_rekomendasi,
+                'tgl_mulai' => $tgl_ini,
+                'tgl_akhir' => $tgl_akhir,
+                'status_sip' => 'AKTIF'
+            );
+            $this->db->insert('tbl_sip', $data_sip);
+        else :
+            $alasan = $this->input->post('alasan');
+            $status = 'TOLAK';
+            $status_rekomendasi = 'T_KEPALA';
+            $id_rekomendasi = htmlentities($this->input->post('id_rekomendasi'));
+            $data = array(
+                'status_rekomendasi' => $status_rekomendasi
+            );
+            $this->db->where('id_rekomendasi', $id_rekomendasi);
+            $this->db->update('tbl_rekomendasi', $data);
+        endif;
+        $data_hsitory = array(
+            'id_history' => '',
+            'id_user' => $this->input->post('id_user'),
             'id_rekomendasi' => $id_rekomendasi,
-            'tgl_mulai' => $tgl_ini,
-            'tgl_akhir' => $tgl_akhir,
-            'status_sip' => 'AKTIF'
+            'tgl_validasi' => date('Y-m-d'),
+            'status_pengajuan' => $status,
+            'ket_lain' => $alasan
         );
-        $this->db->insert('tbl_sip', $data_sip);
+        $this->db->insert('tbl_history', $data_hsitory);
     }
     function validasiSip()
     {

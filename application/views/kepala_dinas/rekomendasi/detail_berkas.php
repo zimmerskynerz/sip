@@ -199,15 +199,31 @@
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal Berakhir STR</label>
                             <div class="col-sm-10">
                                 <input type="date" class="form-control" id="tgl_berakhir_str" value="<?= $data_rekomendasi['tgl_berakhir_str'] ?>" name="tgl_berakhir_str" placeholder="Nomor Telepon Pribadi" readonly>
+                                <input type="text" class="form-control" id="id_user" value="<?= $data_identitas['id_user'] ?>" hidden name="id_user" placeholder="Nama Lengkap Dengan Gelar" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Status Pengajuan</label>
+                            <div class="col-sm-10">
+                                <select type="text" class="form-control" id="status_pengjauan" onchange="showDiv2(this)" name="status_pengjauan" placeholder="Nama Lengkap" required>
+                                    <option value="1">Diterima</option>
+                                    <option value="2">Ditolak</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row" id="select_id_prodi2">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Alasan</label>
+                            <div class="col-sm-10">
+                                <textarea type="text" class="form-control" id="alasan" name="alasan" placeholder="Alasan Ditolak"></textarea>
                             </div>
                         </div>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
                         <?php if ($data_rekomendasi['status_rekomendasi'] == 'P_KABID') : ?>
-                            <button type="submit" id="terimaKasiRekomendasiPerpanjang" name="terimaKasiRekomendasiPerpanjang" class="btn btn-primary float-right">Terima Rekomendasi</button>
+                            <button type="submit" id="terimaKasiRekomendasiPerpanjang" name="terimaKasiRekomendasiPerpanjang" class="btn btn-primary float-right">Simpan</button>
                         <?php else : ?>
-                            <button type="submit" id="terimaKasiRekomendasi" name="terimaKasiRekomendasi" class="btn btn-primary float-right">Terima Rekomendasi</button>
+                            <button type="submit" id="terimaKasiRekomendasi" name="terimaKasiRekomendasi" class="btn btn-primary float-right">Simpan</button>
                         <?php endif; ?>
                     </div>
                     <!-- /.card-footer -->
@@ -219,3 +235,14 @@
         <!-- ./row -->
     </div><!-- /.container-fluid -->
 </section>
+<script>
+    $("#select_id_prodi2").hide();
+
+    function showDiv2(select) {
+        if (select.value == 1) {
+            $("#select_id_prodi2").hide();
+        } else {
+            $("#select_id_prodi2").show();
+        }
+    }
+</script>

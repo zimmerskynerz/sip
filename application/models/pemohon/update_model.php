@@ -248,6 +248,39 @@ class Update_model extends CI_Model
         $this->db->where('id_user', htmlentities($this->input->post('id_user')));
         $this->db->update('tbl_rekomendasi', $data);
     }
+    function kirim_ulang_kasi()
+    {
+        $data = array(
+            'id_kategori' => htmlentities($this->input->post('id_kategori')),
+            'no_str' => htmlentities($this->input->post('no_str')),
+            'tgl_berakhir_str' => htmlentities($this->input->post('tgl_berakhir_str')),
+            'status_rekomendasi' => 'KASI'
+        );
+        $this->db->where('id_user', htmlentities($this->input->post('id_user')));
+        $this->db->update('tbl_rekomendasi', $data);
+    }
+    function kirim_ulang_kabid()
+    {
+        $data = array(
+            'id_kategori' => htmlentities($this->input->post('id_kategori')),
+            'no_str' => htmlentities($this->input->post('no_str')),
+            'tgl_berakhir_str' => htmlentities($this->input->post('tgl_berakhir_str')),
+            'status_rekomendasi' => 'KABID'
+        );
+        $this->db->where('id_user', htmlentities($this->input->post('id_user')));
+        $this->db->update('tbl_rekomendasi', $data);
+    }
+    function kirim_ulang_kepala()
+    {
+        $data = array(
+            'id_kategori' => htmlentities($this->input->post('id_kategori')),
+            'no_str' => htmlentities($this->input->post('no_str')),
+            'tgl_berakhir_str' => htmlentities($this->input->post('tgl_berakhir_str')),
+            'status_rekomendasi' => 'KEPALA'
+        );
+        $this->db->where('id_user', htmlentities($this->input->post('id_user')));
+        $this->db->update('tbl_rekomendasi', $data);
+    }
     function ubahTblRekomendasi()
     {
         $data = array(

@@ -20,7 +20,7 @@
                         </p>
                     </a>
                 </li>
-                <!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'rekomendasi' ? 'menu-open' : '' ?>">
+                <li class="nav-item <?php echo $this->uri->segment(2) == 'rekomendasi' ? 'menu-open' : '' ?>">
                     <a class="nav-link">
                         <i class="nav-icon fas fa-notes-medical"></i>
                         <p>
@@ -50,7 +50,7 @@
                             Validasi SIP
                         </p>
                     </a>
-                </li> -->
+                </li>
                 <li class="nav-item <?php echo $this->uri->segment(2) == 'dokter' ? 'menu-open' : '' ?>">
                     <a class="nav-link">
                         <i class="nav-icon fas fa-user-md"></i>

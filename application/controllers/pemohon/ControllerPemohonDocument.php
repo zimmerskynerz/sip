@@ -146,6 +146,27 @@ class ControllerPemohonDocument extends CI_Controller
             $this->session->set_flashdata('berhasil_kirim_berkas', '<div class="berhasil_kirim_berkas"></div>');
             redirect('pemohon/perijinan/baru');
         endif;
+        if (isset($_POST['kirim_ulang_kasi'])) :
+            $this->update_model->ubahTblIdentitas();
+            $this->update_model->ubahTblKantor();
+            $this->update_model->kirim_ulang_kasi();
+            $this->session->set_flashdata('berhasil_kirim_berkas', '<div class="berhasil_kirim_berkas"></div>');
+            redirect('pemohon/perijinan/baru');
+        endif;
+        if (isset($_POST['kirim_ulang_kabid'])) :
+            $this->update_model->ubahTblIdentitas();
+            $this->update_model->ubahTblKantor();
+            $this->update_model->kirim_ulang_kabid();
+            $this->session->set_flashdata('berhasil_kirim_berkas', '<div class="berhasil_kirim_berkas"></div>');
+            redirect('pemohon/perijinan/baru');
+        endif;
+        if (isset($_POST['kirim_ulang_kepala'])) :
+            $this->update_model->ubahTblIdentitas();
+            $this->update_model->ubahTblKantor();
+            $this->update_model->kirim_ulang_kepala();
+            $this->session->set_flashdata('berhasil_kirim_berkas', '<div class="berhasil_kirim_berkas"></div>');
+            redirect('pemohon/perijinan/baru');
+        endif;
     }
 }
         

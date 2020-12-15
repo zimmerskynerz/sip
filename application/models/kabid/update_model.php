@@ -4,12 +4,31 @@ class Update_model extends CI_Model
 {
     function terima_rekomendasi()
     {
+        $status_pengjauan = $this->input->post('status_pengjauan');
+        if ($status_pengjauan == 1) :
+            $alasan = 'Berkas Diterima KABID';
+            $status = 'TERIMA';
+            $status_rekomendasi = 'KEPALA';
+        else :
+            $alasan = $this->input->post('alasan');
+            $status = 'TOLAK';
+            $status_rekomendasi = 'T_KABID';
+        endif;
         $id_rekomendasi = htmlentities($this->input->post('id_rekomendasi'));
         $data = array(
-            'status_rekomendasi' => 'KABID'
+            'status_rekomendasi' => $status_rekomendasi
         );
         $this->db->where('id_rekomendasi', $id_rekomendasi);
         $this->db->update('tbl_rekomendasi', $data);
+        $data_hsitory = array(
+            'id_history' => '',
+            'id_user' => $this->input->post('id_user'),
+            'id_rekomendasi' => $id_rekomendasi,
+            'tgl_validasi' => date('Y-m-d'),
+            'status_pengajuan' => $status,
+            'ket_lain' => $alasan
+        );
+        $this->db->insert('tbl_history', $data_hsitory);
     }
     function terima_rekomendasi_perpanjang()
     {

@@ -28,8 +28,8 @@ class Update_model extends CI_Model
     {
         $status_pengjauan = $this->input->post('status_pengjauan');
         if ($status_pengjauan == 1) :
-            $alasan = 'Berkas Diterima';
-            $status = 'TERIMA';
+            $alasan = 'Berkas Diterima Kasi';
+            $status = 'TERIMA KASI';
             $status_rekomendasi = 'KABID';
         else :
             $alasan = $this->input->post('alasan');

@@ -38,30 +38,33 @@
                     <td><?= date('d F Y', strtotime($Data_baru->tgl_berakhir_str)) ?></td>
                     <td>
                       <?php
-                      if ($Data_baru->id_rekomendasi == $cek_komentar['id_rekomendasi']) :
-                        if ($cek_komentar['status_pengajuan'] == 'TERIMA') :
-                          echo 'Menunggu Konfirmasi KASI';
-                        elseif ($cek_komentar['status_pengajuan'] == 'TOLAK') :
-                          echo $cek_komentar['ket_lain'];
-                        else :
-                          echo $cek_komentar['ket_lain'];
-                        endif;;
+                      if ($Data_baru->status_rekomendasi == 'AKTIF') :
+                        echo 'Surat Ijin Praktek Diterima';
                       else :
-                        echo 'Menunggu Konfirmasi';
+                        if ($Data_baru->id_rekomendasi == $cek_komentar['id_rekomendasi']) :
+                          if ($cek_komentar['status_pengajuan'] == 'TERIMA') :
+                            echo 'Menunggu Konfirmasi ';
+                          elseif ($cek_komentar['status_pengajuan'] == 'TOLAK') :
+                            echo $cek_komentar['ket_lain'];
+                          else :
+                            echo $cek_komentar['ket_lain'];
+                          endif;
+                        else :
+                          echo 'Menunggu Konfirmasi';
+                        endif;
                       endif;
                       ?>
                     </td>
                     <td>
                       <center>
                         <?php
-                        if ($cek_rekomen['status_rekomendasi'] == 'T_KONFIRMASI') : ?>
+                        if ($cek_rekomen['status_rekomendasi'] == 'T_KONFIRMASI' or $cek_rekomen['status_rekomendasi'] == 'T_KASI' or $cek_rekomen['status_rekomendasi'] == 'T_KABID' or $cek_rekomen['status_rekomendasi'] == 'T_KEPALA') : ?>
                           <a href="<?= base_url('pemohon/dokumen/berkas_permohonan') ?>" class="bs-tooltip" data-placement="top" title="" data-original-title="Detail">
                             <span style="font-size: 24px; color: Dodgerblue;">
                               <i class="fas fa-edit"></i>
                             </span>
                           </a>
-                        <?php endif;
-                        ?>
+                        <?php endif; ?>
                       </center>
                     </td>
                   </tr>

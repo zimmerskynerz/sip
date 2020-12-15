@@ -6,7 +6,7 @@ class Update_model extends CI_Model
     {
         $status_pengjauan = $this->input->post('status_pengjauan');
         if ($status_pengjauan == 1) :
-            $alasan = 'Berkas Diterima';
+            $alasan = 'Berkas Diterima Admin';
             $status = 'TERIMA';
             $status_rekomendasi = 'KASI';
         else :
