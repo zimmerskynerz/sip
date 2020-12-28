@@ -11,7 +11,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <?php echo form_open_multipart('kasi/kategori_dokter/crudkategori'); ?>
+                <?php echo form_open_multipart('admin/kategori_dokter/crudkategori'); ?>
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                 <div class="form-group mb-4">
                     <input type="text" class="form-control" id="nm_kategori" name="nm_kategori" required placeholder="Nama Kategori, Mis. Dokter Gigi" required>

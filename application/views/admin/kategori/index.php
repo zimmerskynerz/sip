@@ -1,4 +1,4 @@
-<?php $this->load->view('kasi/kategori/notif') ?>
+<?php $this->load->view('admin/kategori/notif') ?>
 <br>
 <section class="content">
     <div class="container-fluid">
@@ -51,5 +51,5 @@
     </div>
     <!-- /.container-fluid -->
 </section>
-<?php $this->load->view('kasi/kategori/tambah_kategori') ?>
-<?php $this->load->view('kasi/kategori/detail_kategori') ?>
+<?php $this->load->view('admin/kategori/tambah_kategori') ?>
+<?php $this->load->view('admin/kategori/detail_kategori') ?>

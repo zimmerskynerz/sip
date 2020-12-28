@@ -4,7 +4,6 @@
         <img src="<?= base_url('assets/') ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light" style="color: aliceblue;"><b>KABID</b></span>
     </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar Menu -->
@@ -43,14 +42,14 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="<?= base_url('kabid/validasi') ?>" class="nav-link <?php echo $this->uri->segment(2) == 'validasi' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-file-signature"></i>
                         <p>
                             Validasi SIP
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item <?php echo $this->uri->segment(2) == 'dokter' ? 'menu-open' : '' ?>">
                     <a class="nav-link">
                         <i class="nav-icon fas fa-user-md"></i>

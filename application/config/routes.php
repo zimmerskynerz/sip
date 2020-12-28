@@ -104,3 +104,5 @@ $route['admin/perijinan/tolak']                                  = 'admin/Contro
 $route['admin/perijinan/detail/(:any)']                          = 'admin/ControllerValidasi/detail/$1';
 $route['admin/detail_berkas/(:any)']                             = 'admin/ControllerValidasi/detail/$1';
 $route['admin/pemohon_rekomendasi/crudpemohon']                  = 'admin/ControllerValidasi/crudpemohon';
+$route['admin/kategori_dokter']                                  = 'admin/ControllerKategoriDokter/index';
+$route['admin/kategori_dokter/crudkategori']                     = 'admin/ControllerKategoriDokter/crudkategori';

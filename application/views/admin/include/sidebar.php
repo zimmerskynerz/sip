@@ -20,6 +20,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('admin/kategori_dokter') ?>" class="nav-link <?php echo $this->uri->segment(2) == 'kategori_dokter' ? 'active' : '' ?>">
+                        <i class="nav-icon fas fa-stethoscope"></i>
+                        <p>
+                            Kategori Dokter
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item <?php echo $this->uri->segment(2) == 'perijinan' ? 'menu-open' : '' ?>">
                     <a class="nav-link">
                         <i class="nav-icon fas fa-notes-medical"></i>
