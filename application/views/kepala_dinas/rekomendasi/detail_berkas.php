@@ -193,6 +193,7 @@
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor STR</label>
                             <div class="col-sm-10">
                                 <input type="number" class="form-control" value="<?= $data_rekomendasi['no_str'] ?>" id="no_str" name="no_str" placeholder="Nomor Surat Tanda Registrasi" readonly>
+                                <input type="text" hidden class="form-control" value="<?= $data_rekomendasi['status_rekomendasi'] ?>" id="status_rekomendasi" name="status_rekomendasi" placeholder="Nomor Surat Tanda Registrasi" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -220,8 +221,8 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <?php if ($data_rekomendasi['status_rekomendasi'] == 'P_KABID') : ?>
-                            <button type="submit" id="terimaKasiRekomendasiPerpanjang" name="terimaKasiRekomendasiPerpanjang" class="btn btn-primary float-right">Simpan</button>
+                        <?php if ($data_rekomendasi['status_rekomendasi'] == 'P_KEPALA') : ?>
+                            <button type="submit" id="terimaKasiRekomendasi" name="terimaKasiRekomendasi" class="btn btn-primary float-right">Simpan</button>
                         <?php else : ?>
                             <button type="submit" id="terimaKasiRekomendasi" name="terimaKasiRekomendasi" class="btn btn-primary float-right">Simpan</button>
                         <?php endif; ?>

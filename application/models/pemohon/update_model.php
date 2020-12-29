@@ -281,6 +281,50 @@ class Update_model extends CI_Model
         $this->db->where('id_user', htmlentities($this->input->post('id_user')));
         $this->db->update('tbl_rekomendasi', $data);
     }
+    function kirim_p_ulang_admin()
+    {
+        $data = array(
+            'id_kategori' => htmlentities($this->input->post('id_kategori')),
+            'no_str' => htmlentities($this->input->post('no_str')),
+            'tgl_berakhir_str' => htmlentities($this->input->post('tgl_berakhir_str')),
+            'status_rekomendasi' => 'P_KONFIRMASI'
+        );
+        $this->db->where('id_user', htmlentities($this->input->post('id_user')));
+        $this->db->update('tbl_rekomendasi', $data);
+    }
+    function kirim_p_ulang_kasi()
+    {
+        $data = array(
+            'id_kategori' => htmlentities($this->input->post('id_kategori')),
+            'no_str' => htmlentities($this->input->post('no_str')),
+            'tgl_berakhir_str' => htmlentities($this->input->post('tgl_berakhir_str')),
+            'status_rekomendasi' => 'P_KASI'
+        );
+        $this->db->where('id_user', htmlentities($this->input->post('id_user')));
+        $this->db->update('tbl_rekomendasi', $data);
+    }
+    function kirim_p_ulang_kabid()
+    {
+        $data = array(
+            'id_kategori' => htmlentities($this->input->post('id_kategori')),
+            'no_str' => htmlentities($this->input->post('no_str')),
+            'tgl_berakhir_str' => htmlentities($this->input->post('tgl_berakhir_str')),
+            'status_rekomendasi' => 'P_KABID'
+        );
+        $this->db->where('id_user', htmlentities($this->input->post('id_user')));
+        $this->db->update('tbl_rekomendasi', $data);
+    }
+    function kirim_p_ulang_kepala()
+    {
+        $data = array(
+            'id_kategori' => htmlentities($this->input->post('id_kategori')),
+            'no_str' => htmlentities($this->input->post('no_str')),
+            'tgl_berakhir_str' => htmlentities($this->input->post('tgl_berakhir_str')),
+            'status_rekomendasi' => 'P_KEPALA'
+        );
+        $this->db->where('id_user', htmlentities($this->input->post('id_user')));
+        $this->db->update('tbl_rekomendasi', $data);
+    }
     function ubahTblRekomendasi()
     {
         $data = array(

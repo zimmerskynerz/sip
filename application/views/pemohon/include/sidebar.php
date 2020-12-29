@@ -32,7 +32,7 @@
                         <li class="nav-item">
                             <a href="<?= base_url('pemohon/perijinan/baru') ?>" class="nav-link <?php echo $this->uri->segment(3) == 'baru' ? 'active' : '' ?>">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Daftar Baru</p>
+                                <p>Permohonan</p>
                             </a>
                         </li>
                         <?php if ($cek_sip > 0) : ?>

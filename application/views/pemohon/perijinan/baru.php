@@ -58,7 +58,7 @@
                     <td>
                       <center>
                         <?php
-                        if ($cek_rekomen['status_rekomendasi'] == 'T_KONFIRMASI' or $cek_rekomen['status_rekomendasi'] == 'T_KASI' or $cek_rekomen['status_rekomendasi'] == 'T_KABID' or $cek_rekomen['status_rekomendasi'] == 'T_KEPALA') : ?>
+                        if ($cek_rekomen['status_rekomendasi'] == 'T_KONFIRMASI' or $cek_rekomen['status_rekomendasi'] == 'T_KASI' or $cek_rekomen['status_rekomendasi'] == 'T_KABID' or $cek_rekomen['status_rekomendasi'] == 'T_KEPALA' or $cek_rekomen['status_rekomendasi'] == 'TP_KONFIRMASI' or $cek_rekomen['status_rekomendasi'] == 'TP_KASI' or $cek_rekomen['status_rekomendasi'] == 'TP_KABID' or $cek_rekomen['status_rekomendasi'] == 'TP_KEPALA') : ?>
                           <a href="<?= base_url('pemohon/dokumen/berkas_permohonan') ?>" class="bs-tooltip" data-placement="top" title="" data-original-title="Detail">
                             <span style="font-size: 24px; color: Dodgerblue;">
                               <i class="fas fa-edit"></i>

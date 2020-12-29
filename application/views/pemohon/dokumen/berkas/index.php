@@ -224,6 +224,26 @@
                             <button type="submit" id="kirim_ulang_kepala" name="kirim_ulang_kepala" class="btn btn-primary float-right">KIRIM ULANG</button>
                         </div>
                     <?php endif; ?>
+                    <?php if ($data_rekomendasi['status_rekomendasi'] == 'TP_KONFIRMASI') : ?>
+                        <div class="card-footer">
+                            <button type="submit" id="kirim_p_ulang_admin" name="kirim_p_ulang_admin" class="btn btn-primary float-right">KIRIM ULANG</button>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($data_rekomendasi['status_rekomendasi'] == 'TP_KASI') : ?>
+                        <div class="card-footer">
+                            <button type="submit" id="kirim_p_ulang_kasi" name="kirim_p_ulang_kasi" class="btn btn-primary float-right">KIRIM ULANG</button>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($data_rekomendasi['status_rekomendasi'] == 'TP_KABID') : ?>
+                        <div class="card-footer">
+                            <button type="submit" id="kirim_p_ulang_kabid" name="kirim_p_ulang_kabid" class="btn btn-primary float-right">KIRIM ULANG</button>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($data_rekomendasi['status_rekomendasi'] == 'TP_KEPALA') : ?>
+                        <div class="card-footer">
+                            <button type="submit" id="kirim_p_ulang_kepala" name="kirim_p_ulang_kepala" class="btn btn-primary float-right">KIRIM ULANG</button>
+                        </div>
+                    <?php endif; ?>
                     <!-- /.card-footer -->
                 </div>
                 <?php echo form_close(); ?>

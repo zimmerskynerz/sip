@@ -60,6 +60,7 @@ class Select_model extends CI_Model
         $query  = $this->db->join('tbl_kategori as E', 'E.id_kategori=D.id_kategori');
         $query  = $this->db->join('tbl_sip as F', 'F.id_rekomendasi=D.id_rekomendasi');
         $query  = $this->db->where('A.id_user', $id_user);
+        $query  = $this->db->group_by('A.id_user');
         $query  = $this->db->get();
         return $query->result();
     }

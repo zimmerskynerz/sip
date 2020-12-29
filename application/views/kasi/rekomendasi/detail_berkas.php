@@ -220,7 +220,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <?php if ($data_rekomendasi['status_rekomendasi'] == 'P_PROSES') : ?>
+                        <?php if ($data_rekomendasi['status_rekomendasi'] == 'P_KASI') : ?>
                             <button type="submit" id="terimaKasiRekomendasiPerpanjang" name="terimaKasiRekomendasiPerpanjang" class="btn btn-primary float-right">Simpan</button>
                         <?php else : ?>
                             <button type="submit" id="terimaKasiRekomendasi" name="terimaKasiRekomendasi" class="btn btn-primary float-right">Simpan</button>

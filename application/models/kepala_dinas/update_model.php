@@ -36,9 +36,15 @@ class Update_model extends CI_Model
             );
             $this->db->insert('tbl_sip', $data_sip);
         else :
+            $status_rekomendasi = $this->input->post('status_rekomendasi');
+
             $alasan = $this->input->post('alasan');
             $status = 'TOLAK';
-            $status_rekomendasi = 'T_KEPALA';
+            if ($status_rekomendasi == 'P_KEPALA') :
+                $status_rekomendasi = 'TP_KEPALA';
+            else :
+                $status_rekomendasi = 'T_KEPALA';
+            endif;
             $id_rekomendasi = htmlentities($this->input->post('id_rekomendasi'));
             $data = array(
                 'status_rekomendasi' => $status_rekomendasi
