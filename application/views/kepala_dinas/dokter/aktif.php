@@ -17,8 +17,7 @@
                                     <th style="text-align: center;">Kategori Dokter</th>
                                     <th style="text-align: center;">Nama Kantor</th>
                                     <th style="text-align: center;">Alamat Kantor</th>
-                                    <th style="text-align: center;">No STR</th>
-                                    <th style="text-align: center;">No Rekomendasi</th>
+                                    <th style="text-align: center;">Berlaku SIP</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -30,8 +29,7 @@
                                         <td class="text-center"><?= $Data_dokter_aktif->singkatan ?> - <?= $Data_dokter_aktif->nm_kategori ?></td>
                                         <td><?= $Data_dokter_aktif->nm_kantor ?></td>
                                         <td><?= $Data_dokter_aktif->alamat_praktik ?></td>
-                                        <td><?= $Data_dokter_aktif->no_str ?></td>
-                                        <td>00<?= $Data_dokter_aktif->id_rekomendasi ?>/SR.<?= $Data_dokter_aktif->singkatan ?>/<?= date('Y', strtotime($Data_dokter_aktif->tgl_daftar)) ?>/KUDUS-JT12</td>
+                                        <td><?= date('d F Y', strtotime($Data_dokter_aktif->tgl_mulai)) ?> - <?= date('d F Y', strtotime($Data_dokter_aktif->tgl_akhir)) ?></td>
                                     </tr>
                                     <?php $no++; ?>
                                 <?php endforeach; ?>

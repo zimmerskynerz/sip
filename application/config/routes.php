@@ -94,6 +94,10 @@ $route['kepala_dinas/dokter/non_aktif']                          = 'kepala_dinas
 // Menu Profile
 $route['kepala_dinas/profile']                                   = 'kepala_dinas/ControllerKepalaDinasProfile/index';
 $route['kepala_dinas/profile/crudprofile']                       = 'kepala_dinas/ControllerKepalaDinasProfile/crudprofile';
+// Kepala Laporan
+$route['kepala_dinas/laporan']                                   = 'kepala_dinas/ControllerLaporan/index';
+$route['kepala_dinas/cek_laporan']                               = 'kepala_dinas/ControllerLaporan/index';
+$route['kepala_dinas/cetak_laporan']                             = 'kepala_dinas/ControllerLaporan/cetak';
 
 // Level Admin
 // Menu Validasi
@@ -106,3 +110,9 @@ $route['admin/detail_berkas/(:any)']                             = 'admin/Contro
 $route['admin/pemohon_rekomendasi/crudpemohon']                  = 'admin/ControllerValidasi/crudpemohon';
 $route['admin/kategori_dokter']                                  = 'admin/ControllerKategoriDokter/index';
 $route['admin/kategori_dokter/crudkategori']                     = 'admin/ControllerKategoriDokter/crudkategori';
+
+
+
+// Coba Buat Crud
+$route['coba/form']                                              = 'coba/ControllerCobaCrud/index';
+$route['coba/crudform']                                          = 'coba/ControllerCobaCrud/crudform';

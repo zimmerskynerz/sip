@@ -106,4 +106,11 @@ class Select_model extends CI_Model
         $query   = $this->db->get();
         return $query->result();
     }
+    function getDataCoba()
+    {
+        $query  = $this->db->select('*');
+        $query  = $this->db->from('tbl_coba');
+        $query  = $this->db->get();
+        return $query->result();
+    }
 }

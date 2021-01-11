@@ -113,4 +113,26 @@ class Select_model extends CI_Model
         $query   = $this->db->get();
         return $query->result();
     }
+    function getDataAllDokter()
+    {
+        $query  = $this->db->select('*');
+        $query  = $this->db->from('tbl_user as A');
+        $query  = $this->db->join('tbl_identitas as B', 'A.id_user=B.id_user');
+        $query  = $this->db->where('A.level', 'PEMOHON');
+        $query  = $this->db->get();
+        return $query->result();
+    }
+    function getAllRekomendasiBaru($bulan_ini, $tahun)
+    {
+        $query = $this->db->select('*');
+        $query = $this->db->from('tbl_rekomendasi as A');
+        $query = $this->db->join('tbl_identitas E', 'A.id_user=E.id_user');
+        $query = $this->db->join('tbl_sip as B', 'A.id_rekomendasi=B.id_rekomendasi');
+        $query = $this->db->join('tbl_kategori as C', 'A.id_kategori=C.id_kategori');
+        $query = $this->db->where('month(A.tgl_daftar)', $bulan_ini);
+        $query = $this->db->where('year(A.tgl_daftar)', $tahun);
+        $query = $this->db->group_by('A.id_user');
+        $query  = $this->db->get();
+        return $query->result();
+    }
 }

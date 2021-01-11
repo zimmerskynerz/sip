@@ -74,14 +74,14 @@
                         </li>
                     </ul>
                 </li>
-                <!-- <li class="nav-item">
-                    <a href="<?= base_url('kepala_dinas/profile') ?>" class="nav-link <?php echo $this->uri->segment(2) == 'profile' ? 'active' : '' ?>">
-                        <i class="nav-icon far fa-user"></i>
+                <li class="nav-item">
+                    <a href="<?= base_url('kepala_dinas/laporan') ?>" class="nav-link <?php echo $this->uri->segment(2) == 'profile' ? 'active' : '' ?>">
+                        <i class="nav-icon far fa-copy"></i>
                         <p>
-                            Profil
+                            Laporan
                         </p>
                     </a>
-                </li> -->
+                </li>
                 <li class="nav-item">
                     <a href="<?= base_url('login/logout') ?>" class="nav-link ">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
